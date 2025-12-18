@@ -1,0 +1,443 @@
+/*
+  Localizable.strings (German)
+  Umami Insights
+*/
+
+// MARK: - General
+"app.name" = "Insights Flow";
+"button.cancel" = "Abbrechen";
+"button.done" = "Fertig";
+"button.save" = "Speichern";
+"button.delete" = "Löschen";
+"button.create" = "Erstellen";
+"button.close" = "Schließen";
+"button.copy" = "Kopieren";
+"button.copied" = "Kopiert!";
+"button.add" = "Hinzufügen";
+"button.back" = "Zurück";
+"button.next" = "Weiter";
+"button.skip" = "Überspringen";
+"button.start" = "Los geht's!";
+
+// MARK: - Tabs
+"tab.dashboard" = "Dashboard";
+"tab.admin" = "Verwaltung";
+"tab.settings" = "Einstellungen";
+
+// MARK: - Dashboard
+"dashboard.title" = "Dashboard";
+"dashboard.loading" = "Lade Websites...";
+"dashboard.visitors" = "Besucher";
+"dashboard.pageviews" = "Aufrufe";
+"dashboard.visits" = "Besuche";
+"dashboard.bounces" = "Absprünge";
+"dashboard.bounceRate" = "Absprungrate";
+"dashboard.duration" = "Verweildauer";
+"dashboard.live" = "Jetzt live";
+"dashboard.addSite" = "Website hinzufügen";
+"dashboard.removeSite" = "Website entfernen";
+"dashboard.removeSite.confirm.title" = "Website entfernen?";
+"dashboard.removeSite.confirm.umami" = "Die Website und alle zugehörigen Daten werden dauerhaft aus Umami gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.";
+"dashboard.removeSite.confirm.plausible" = "Die Website wird aus der App entfernt. Deine Daten in Plausible bleiben erhalten.";
+"dashboard.empty.title" = "Keine Websites";
+"dashboard.empty.plausible" = "Füge deine erste Website hinzu, um Statistiken zu sehen.";
+"dashboard.empty.umami" = "Du hast noch keine Websites in deinem Umami-Account.";
+
+// MARK: - Add Site
+"addSite.title" = "Website hinzufügen";
+"addSite.domain.header" = "Details";
+"addSite.domain.placeholder" = "beispiel.de";
+"addSite.domain.footer" = "Gib die Domain ein, die du in Plausible trackst.";
+"addSite.umami.name.placeholder" = "Website-Name";
+
+// MARK: - Settings
+"settings.editApiKey" = "API Key bearbeiten";
+"settings.editApiKey.message" = "Gib deinen neuen API Key ein.";
+
+// MARK: - Date Ranges
+"daterange.today" = "Heute";
+"daterange.yesterday" = "Gestern";
+"daterange.thisWeek" = "Diese Woche";
+"daterange.last7days" = "7 Tage";
+"daterange.last30days" = "30 Tage";
+"daterange.thisMonth" = "Dieser Monat";
+"daterange.lastMonth" = "Letzter Monat";
+"daterange.thisYear" = "Dieses Jahr";
+"daterange.lastYear" = "Letztes Jahr";
+"daterange.custom" = "Eigener Zeitraum";
+
+// MARK: - Metrics
+"metrics.pageviews" = "Aufrufe";
+"metrics.visitors" = "Besucher";
+"metrics.visits" = "Besuche";
+"metrics.bounceRate" = "Absprungrate";
+"metrics.duration" = "Verweildauer";
+
+// MARK: - Chart
+"chart.style.line" = "Linie";
+"chart.style.bar" = "Balken";
+
+// MARK: - Sessions
+"sessions.title" = "Besucher";
+"sessions.tab.journeys" = "Journeys";
+"sessions.tab.sessions" = "Sessions";
+"sessions.loading" = "Lade Sessions...";
+"sessions.empty" = "Keine Sessions";
+"sessions.empty.description" = "Keine Besucher im gewählten Zeitraum";
+"sessions.loadMore" = "Mehr laden";
+"sessions.detail.title" = "Session Details";
+"sessions.detail.activities" = "Aktivitäten";
+"sessions.detail.device" = "Gerät";
+"sessions.detail.pageviews" = "Aufrufe";
+"sessions.detail.loading" = "Lade Session...";
+"sessions.visitor.title" = "Besucher Details";
+
+// MARK: - Journeys
+"journeys.loading" = "Lade User Journeys...";
+"journeys.empty" = "Keine Journeys";
+"journeys.empty.description" = "Keine Besucherpfade im gewählten Zeitraum";
+"journeys.visitors %lld" = "%lld Besucher";
+"journeys.steps %lld" = "%lld Schritte";
+"journeys.userJourney" = "User Journey";
+
+// MARK: - Admin
+"admin.title" = "Verwaltung";
+"admin.section" = "Bereich";
+"admin.websites" = "Websites";
+"admin.teams" = "Teams";
+"admin.users" = "Benutzer";
+"admin.details" = "Details";
+
+// MARK: - Admin Websites
+"admin.websites.new" = "Neue Website";
+"admin.websites.empty" = "Keine Websites";
+"admin.websites.empty.description" = "Erstelle deine erste Website";
+"admin.websites.edit" = "Website bearbeiten";
+"admin.websites.delete" = "Website löschen?";
+"admin.websites.delete.message %@" = "Alle Statistiken von %@ werden unwiderruflich gelöscht.";
+"admin.websites.trackingCode" = "Tracking Code";
+"admin.websites.trackingCode.description" = "Füge diesen Code in den <head> Bereich deiner Website ein:";
+"admin.websites.trackingCode.copy" = "Code kopieren";
+"admin.websites.shareLink" = "Share Link";
+"admin.websites.shareLink.copy" = "Link kopieren";
+"admin.websites.shareLink.create" = "Share-Link erstellen";
+"admin.websites.shareLink.description" = "Erstelle einen öffentlichen Share-Link, um die Statistiken mit anderen zu teilen.";
+"admin.websites.shareLink.existing" = "Dein öffentlicher Share-Link:";
+"admin.websites.shareLink.id" = "Share-ID:";
+"admin.websites.shareLink.minLength" = "Die Share-ID muss mindestens 8 Zeichen lang sein.";
+"admin.websites.shareLink.disable" = "Share-Link deaktivieren";
+"admin.websites.shareLink.enabled" = "Website teilen";
+"admin.websites.team" = "Team Zuordnung";
+"admin.websites.noTeam" = "Kein Team";
+"admin.websites.team.hint" = "Team-Zuordnungen können nur in der Umami Web-Oberfläche geändert werden.";
+"admin.websites.code" = "Code";
+"admin.websites.share" = "Teilen";
+"admin.websites.plausible.hint" = "Domain ohne https:// eingeben (z.B. example.com)";
+
+// MARK: - Admin Teams
+"admin.teams.new" = "Neues Team";
+"admin.teams.empty" = "Keine Teams";
+"admin.teams.empty.description" = "Erstelle ein Team zur Zusammenarbeit";
+"admin.teams.delete" = "Team löschen?";
+"admin.teams.details" = "Team Details";
+"admin.teams.accessCode" = "Code:";
+"admin.teams.members" = "Team Mitglieder";
+"admin.teams.members.add" = "Mitglied hinzufügen";
+"admin.teams.members.current" = "Aktuelle Mitglieder";
+"admin.teams.members.none" = "Keine Mitglieder";
+"admin.teams.members.select" = "Auswählen...";
+"admin.teams.members.user" = "Benutzer";
+"admin.teams.role" = "Rolle";
+"admin.teams.role.owner" = "Besitzer";
+"admin.teams.role.manager" = "Manager";
+"admin.teams.role.member" = "Mitglied";
+"admin.teams.role.viewonly" = "Nur Ansicht";
+"admin.teams.websites" = "Websites:";
+
+// MARK: - Admin Users
+"admin.users.new" = "Neuer Benutzer";
+"admin.users.empty" = "Keine Benutzer";
+"admin.users.empty.description" = "Nur du bist hier";
+"admin.users.delete" = "Benutzer löschen?";
+"admin.users.details" = "Benutzer Details";
+"admin.users.username" = "Benutzername";
+"admin.users.password" = "Passwort";
+"admin.users.credentials" = "Anmeldedaten";
+"admin.users.permissions" = "Berechtigungen";
+"admin.users.role" = "Rolle";
+"admin.users.role.admin" = "Administrator";
+"admin.users.role.user" = "Benutzer";
+
+// MARK: - Website Detail
+"website.topPages" = "Top Seiten";
+"website.referrers" = "Referrer";
+"website.referrer.direct" = "Direkt";
+"website.countries" = "Länder";
+"website.regions" = "Regionen";
+"website.cities" = "Städte";
+"website.devices" = "Geräte";
+"website.browsers" = "Browser";
+"website.os" = "Betriebssysteme";
+"website.languages" = "Sprachen";
+"website.screens" = "Bildschirme";
+"website.events" = "Events";
+"website.homepage" = "Startseite";
+"website.noTitle" = "(Ohne Titel)";
+
+// MARK: - Devices
+"device.desktop" = "Desktop";
+"device.mobile" = "Mobil";
+"device.tablet" = "Tablet";
+"device.unknown" = "Unbekannt";
+
+// MARK: - Settings
+"settings.title" = "Einstellungen";
+"settings.account" = "Konto";
+"settings.accounts" = "Accounts";
+"settings.accounts.footer" = "Wische nach links, um einen Account zu entfernen.";
+"settings.appearance" = "Erscheinungsbild";
+"settings.appearance.system" = "System";
+"settings.appearance.light" = "Hell";
+"settings.appearance.dark" = "Dunkel";
+"settings.notifications" = "Benachrichtigungen";
+"settings.notifications.time" = "Uhrzeit";
+"settings.notifications.stats" = "Statistiken";
+"settings.notifications.stats.today" = "Heute";
+"settings.notifications.stats.yesterday" = "Gestern";
+"settings.notifications.stats.auto" = "Automatisch";
+"settings.notifications.stats.auto.description" = "Vor 12 Uhr → Statistiken von gestern\nAb 12 Uhr → Statistiken von heute";
+"settings.notifications.website" = "Website";
+"settings.notifications.enabled" = "Aktiviert";
+"settings.notifications.permission" = "Benachrichtigungen erlauben";
+"settings.notifications.frequency" = "Häufigkeit";
+"settings.notifications.footer %@" = "Erhalte tägliche oder wöchentliche Zusammenfassungen deiner Website-Statistiken um %@.";
+"settings.about" = "Über";
+"settings.about.intro" = "Einführung anzeigen";
+"settings.about.version" = "Version";
+"settings.about.umami" = "Umami Analytics";
+"settings.about.license" = "Umami Analytics ist Open Source unter MIT-Lizenz.";
+
+// MARK: - Support
+"settings.support.title" = "Entwicklung unterstützen";
+"settings.support.subtitle" = "Hilf uns, Insights Flow zu verbessern";
+
+"settings.logout" = "Abmelden";
+"settings.logout.confirm" = "Möchtest du dich wirklich abmelden?";
+
+// MARK: - Notifications
+"notifications.setting.disabled" = "Aus";
+"notifications.setting.daily" = "Täglich";
+"notifications.setting.weekly" = "Wöchentlich";
+"notifications.datasource.today.desc" = "Zeigt die Statistiken von heute";
+"notifications.datasource.yesterday.desc" = "Zeigt die Statistiken von gestern";
+"notifications.datasource.auto.desc" = "Morgens: gestern, Abends: heute";
+"notifications.last7days" = "Letzte 7 Tage";
+"notifications.tapToView" = "Tippe um deine Statistiken zu sehen";
+
+// MARK: - Support / Donation
+"support.title" = "Unterstützen";
+"support.header" = "Unterstütze Insights Flow";
+"support.message" = "Software sollte frei sein.\n\nWenn du es dir gerade leisten kannst, freue ich mich über deine Unterstützung. Ansonsten nutze die App einfach gerne – das ist völlig in Ordnung.";
+"support.small" = "Kleine Geste";
+"support.medium" = "Nette Geste";
+"support.large" = "Große Geste";
+"support.thankyou.title" = "Vielen Dank!";
+"support.thankyou.message" = "Deine Unterstützung bedeutet mir sehr viel und hilft dabei, diese App weiterzuentwickeln. Danke!";
+"support.footer" = "Alle Käufe sind einmalig.";
+"support.unavailable" = "Nicht verfügbar";
+"support.unavailable.description" = "Unterstützungs-Optionen konnten nicht geladen werden";
+"support.error" = "Fehler";
+"support.error.unverified" = "Kauf konnte nicht verifiziert werden";
+"support.error.pending" = "Kauf wird bearbeitet";
+
+// MARK: - Support Reminder
+"support.reminder.title" = "Dir gefällt Insights Flow?";
+"support.reminder.message" = "Diese App ist kostenlos und werbefrei. Sie wurde mit viel Liebe entwickelt.\n\nSoftware sollte frei sein. Wenn du es dir leisten kannst, unterstütze die Entwicklung gerne. Ansonsten nutze die App einfach weiter – das ist völlig okay!";
+"support.reminder.support" = "Gerne unterstützen";
+"support.reminder.already" = "Hab ich schon";
+"support.reminder.later" = "Gerade nicht";
+
+// MARK: - Compare
+"compare.title" = "Vergleich";
+"compare.type" = "Zeitraum";
+"compare.week" = "Woche";
+"compare.month" = "Monat";
+"compare.year" = "Jahr";
+"compare.periodA" = "Periode A";
+"compare.periodB" = "Periode B";
+"compare.button" = "Vergleichen";
+"compare.loading" = "Lade Daten...";
+"compare.vs" = "VS";
+"compare.calendarWeek" = "KW";
+"compare.inComparison" = "im Vergleich";
+"compare.months.jan" = "Jan";
+"compare.months.feb" = "Feb";
+"compare.months.mar" = "Mär";
+"compare.months.apr" = "Apr";
+"compare.months.may" = "Mai";
+"compare.months.jun" = "Jun";
+"compare.months.jul" = "Jul";
+"compare.months.aug" = "Aug";
+"compare.months.sep" = "Sep";
+"compare.months.oct" = "Okt";
+"compare.months.nov" = "Nov";
+"compare.months.dec" = "Dez";
+
+// MARK: - Realtime
+"realtime.title" = "Echtzeit";
+"realtime.active" = "Aktive Besucher";
+"realtime.current" = "Gerade online";
+"realtime.last30min" = "letzte 30 Minuten";
+"realtime.today" = "Heute";
+"realtime.pageviews" = "Aufrufe";
+"realtime.activePages" = "Aktive Seiten";
+"realtime.recentActivity" = "Letzte Aktivitäten";
+"realtime.countries" = "Länder";
+"realtime.from" = "Von:";
+
+// MARK: - Retention
+"retention.title" = "Retention";
+"retention.loading" = "Lade Retention-Daten...";
+"retention.empty" = "Keine Retention-Daten";
+"retention.empty.description" = "Im gewählten Zeitraum gab es keine wiederkehrenden Besucher.";
+"retention.what.title" = "Was ist Retention?";
+"retention.what.description" = "Retention zeigt, wie viele Besucher nach ihrem ersten Besuch zurückkehren. Eine hohe Retention bedeutet, dass Nutzer deine Website regelmäßig besuchen.";
+"retention.noReturning" = "Noch keine wiederkehrenden Besucher";
+"retention.noReturning.description" = "Im gewählten Zeitraum gab es keine wiederkehrenden Besucher.";
+"retention.visitors" = "Besucher";
+"retention.days" = "Tage";
+"retention.average" = "Durchschnitt";
+"retention.max" = "Max Retention";
+"retention.overTime" = "Retention über Zeit";
+"retention.day" = "Tag";
+"retention.rate" = "Rate";
+"retention.returning" = "Wiederkehrende Besucher";
+"retention.returningNote" = "Zeigt nur Tage mit mindestens 1 Rückkehrer";
+"retention.firstVisit" = "Erstbesuch";
+"retention.after" = "Nach";
+"retention.returned" = "Zurück";
+"retention.oneDay" = "1 Tag";
+"retention.nDays %lld" = "%lld Tage";
+
+// MARK: - Pages
+"pages.title" = "Seiten";
+"pages.empty" = "Keine Seiten";
+"pages.empty.description" = "Es wurden keine Seiten im ausgewählten Zeitraum aufgerufen.";
+"pages.visited" = "Aufgerufene Seiten";
+"pages.count" = "Seiten";
+"pages.showFullUrl" = "Zeigt Seitentitel mit vollständiger URL inkl. Query-Parameter.";
+"pages.homepage" = "Startseite";
+
+// MARK: - Insights
+"insights.title" = "Vergleiche";
+"insights.pageviewsComparison" = "Aufrufe Vergleich";
+"insights.thisWeek" = "Diese Woche";
+"insights.lastWeek" = "Letzte Woche";
+"insights.lastMonth" = "Letzter Monat";
+
+// MARK: - Onboarding
+"onboarding.welcome.title" = "Willkommen bei Insights Flow";
+"onboarding.welcome.subtitle" = "Deine Website-Statistiken immer dabei – datenschutzfreundlich und übersichtlich.";
+"onboarding.welcome.umami" = "Open Source, selbst gehostet";
+"onboarding.welcome.plausible" = "Einfach und datenschutzfreundlich";
+"onboarding.metrics.title" = "Besucher verstehen";
+"onboarding.metrics.subtitle" = "Lerne die wichtigsten Metriken kennen:";
+"onboarding.metrics.visitors" = "Besucher: Eindeutige Besucher deiner Website";
+"onboarding.metrics.pageviews" = "Aufrufe: Wie oft Seiten angeschaut wurden";
+"onboarding.metrics.bounces" = "Absprünge: Besucher die nur eine Seite sahen";
+"onboarding.realtime.title" = "Echtzeit-Daten";
+"onboarding.realtime.subtitle" = "Sieh wer gerade auf deiner Website ist:";
+"onboarding.realtime.live" = "Live-Besucher in Echtzeit";
+"onboarding.realtime.activity" = "Aktuelle Seitenaufrufe";
+"onboarding.realtime.journeys" = "Besucherpfade nachvollziehen";
+"onboarding.notifications.title" = "Benachrichtigungen";
+"onboarding.notifications.subtitle" = "Bleib informiert:";
+"onboarding.notifications.daily" = "Tägliche Statistik-Updates";
+"onboarding.notifications.weekly" = "Wöchentliche Zusammenfassungen";
+"onboarding.notifications.custom" = "Individuelle Zeitplanung";
+"onboarding.comparison.title" = "Umami vs Plausible";
+"onboarding.comparison.subtitle" = "Beide Anbieter unterscheiden sich in Features:";
+"onboarding.comparison.both" = "Beide Anbieter";
+"onboarding.comparison.both.text" = "Dashboard, Charts, Seitenaufrufe, Besucher, Bounces";
+"onboarding.comparison.umami" = "Umami Extras";
+"onboarding.comparison.umami.text" = "Sessions, Journeys, Share Links, Echtzeit-Details";
+"onboarding.comparison.plausible" = "Plausible";
+"onboarding.comparison.plausible.text" = "Privacy-first – keine einzelnen Sessions oder Journeys";
+
+// MARK: - Login
+"login.title" = "Anmelden";
+"login.subtitle" = "Gib deine Anmeldedaten ein";
+"login.subtitle.choose" = "Wähle deinen Analytics-Anbieter";
+"login.server" = "Server URL";
+"login.server.placeholder" = "Server URL (z.B. https://analytics.example.com)";
+"login.username" = "Benutzername";
+"login.password" = "Passwort";
+"login.button" = "Verbinden";
+"login.error" = "Anmeldung fehlgeschlagen";
+"login.cloud.title" = "Cloud";
+"login.cloud.description" = "Offizieller Cloud-Service";
+"login.selfhosted.title" = "Self-hosted";
+"login.selfhosted.description" = "Eigener Server";
+"login.serverType" = "Server-Typ";
+"login.umami.description" = "Open Source, datenschutzfreundliche Analytics";
+"login.plausible.description" = "Einfache, datenschutzfreundliche Analytics";
+"login.siteId.placeholder" = "Domain (z.B. example.com)";
+"login.apiKey.placeholder" = "API-Schlüssel";
+"login.apiKey.help" = "Wo finde ich meinen API-Schlüssel?";
+"login.accountName.placeholder" = "Account-Name (optional)";
+
+// MARK: - Errors
+"error.title" = "Fehler";
+"error.generic" = "Ein Fehler ist aufgetreten";
+"error.network" = "Netzwerkfehler";
+"error.auth" = "Anmeldung fehlgeschlagen";
+"error.invalidURL" = "Ungültige Server-URL";
+"error.notAuthenticated" = "Nicht angemeldet";
+"error.invalidCredentials" = "Ungültige Anmeldedaten";
+"error.invalidResponse" = "Ungültige Server-Antwort";
+"error.unauthorized" = "Nicht autorisiert - bitte überprüfe deine Anmeldedaten";
+"error.server %lld" = "Serverfehler: %lld";
+
+// MARK: - Account Switcher
+"account.switcher.title" = "Accounts";
+"account.switcher.accounts" = "Deine Accounts";
+"account.switcher.addAccount" = "Account hinzufügen";
+"account.add.title" = "Account hinzufügen";
+"account.add.provider" = "Anbieter";
+"account.add.name" = "Name (optional)";
+"account.add.serverURL" = "Server URL";
+"account.add.details" = "Account Details";
+"account.add.credentials" = "Anmeldedaten";
+"account.add.username" = "Benutzername";
+"account.add.password" = "Passwort";
+"account.add.apiKey" = "API Key";
+"account.add.apiKey.hint" = "Erstelle einen API Key in deinen Plausible Einstellungen unter Account Settings → API Keys.";
+"account.add.button" = "Account hinzufügen";
+"account.edit.title" = "Account bearbeiten";
+"account.edit.name" = "Name";
+"account.edit.name.header" = "Account Name";
+"account.edit.name.footer" = "Gib diesem Account einen Namen, um ihn leichter zu identifizieren.";
+
+// MARK: - Dashboard Settings
+"dashboard.settings.title" = "Dashboard Einstellungen";
+"dashboard.settings.graph" = "Graph";
+"dashboard.settings.showGraph" = "Graph anzeigen";
+"dashboard.settings.graph.footer" = "Zeigt einen Verlaufsgraph auf jeder Website-Karte an.";
+"dashboard.settings.metrics" = "Angezeigte Metriken";
+"dashboard.settings.metrics.visitors" = "Besucher";
+"dashboard.settings.metrics.pageviews" = "Aufrufe";
+"dashboard.settings.metrics.visits" = "Besuche";
+"dashboard.settings.metrics.bounceRate" = "Absprungrate";
+"dashboard.settings.metrics.duration" = "Verweildauer";
+"dashboard.settings.metrics.footer" = "Wähle welche Statistiken auf dem Dashboard angezeigt werden sollen.";
+
+// MARK: - Accessibility
+"accessibility.chartStyle.toggle" = "Diagrammstil wechseln";
+"accessibility.chartStyle.hint" = "Wechsel zwischen Linien- und Balkendiagramm";
+"accessibility.addWebsite" = "Website hinzufügen";
+"accessibility.liveVisitors %lld" = "%lld aktive Besucher";
+"accessibility.statCard %@ %lld %@" = "%@: %lld, %@ im Vergleich zum Vorzeitraum";
+"accessibility.chart.pageviews" = "Seitenaufrufe im Zeitverlauf";
+"accessibility.chart.visitors" = "Besucher im Zeitverlauf";
+"accessibility.dateRange.selected" = "Ausgewählt";
+"accessibility.dateRange.notSelected" = "Nicht ausgewählt";

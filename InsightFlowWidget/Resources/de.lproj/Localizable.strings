@@ -1,0 +1,36 @@
+/*
+  Localizable.strings (German)
+  InsightFlowWidget
+*/
+
+// MARK: - Time Ranges
+"widget.timerange.today" = "Heute";
+"widget.timerange.yesterday" = "Gestern";
+"widget.timerange.last7days" = "7 Tage";
+"widget.timerange.last30days" = "30 Tage";
+"widget.timerange.type" = "Zeitraum";
+
+// MARK: - Configuration
+"widget.configure.title" = "Widget konfigurieren";
+"widget.configure.description" = "Wähle Account, Website und Zeitraum";
+"widget.configure.account" = "Account";
+"widget.configure.website" = "Website";
+"widget.account" = "Account";
+"widget.account.all" = "Alle";
+
+// MARK: - Errors
+"widget.error.login" = "In App anmelden";
+"widget.error.selectWebsite" = "Website wählen";
+"widget.error.invalidURL" = "URL ungültig";
+"widget.error.tokenExpired" = "Token abgelaufen";
+"widget.error.format" = "Formatfehler";
+"widget.error.network" = "Netzwerkfehler";
+"widget.error.reconfigure" = "Widget neu konfigurieren";
+
+// MARK: - Stats
+"widget.stats.visitors" = "Besucher";
+"widget.stats.pageviews" = "Aufrufe";
+
+// MARK: - Widget Info
+"widget.displayName" = "Umami Insights";
+"widget.description" = "Website-Statistiken";

@@ -1,0 +1,64 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Xcode - User-specific
+xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE
+*.swp
+*.swo
+*~
+.idea/
+*.sublime-*
+
+# Claude Code
+.claude/
+
+# Secrets & Credentials
+*.p12
+*.mobileprovision
+*.pem
+Secrets/
+credentials.json
+
+# Environment
+.env
+.env.*
+
+# Archives
+*.xcarchive
+
+# Temporary files
+*.tmp
+*.temp

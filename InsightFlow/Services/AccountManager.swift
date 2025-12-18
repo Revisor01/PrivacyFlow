@@ -1,0 +1,350 @@
+import Foundation
+import WidgetKit
+import Combine
+
+// Notification for account changes
+extension Notification.Name {
+    static let accountDidChange = Notification.Name("accountDidChange")
+    static let allAccountsRemoved = Notification.Name("allAccountsRemoved")
+}
+
+// MARK: - Account Model
+
+struct AnalyticsAccount: Codable, Identifiable, Equatable {
+    let id: UUID
+    let name: String
+    let serverURL: String
+    let providerType: AnalyticsProviderType
+    let credentials: AccountCredentials
+    var sites: [String]?  // For Plausible: stored site domains
+    let createdAt: Date
+
+    init(
+        id: UUID = UUID(),
+        name: String,
+        serverURL: String,
+        providerType: AnalyticsProviderType,
+        credentials: AccountCredentials,
+        sites: [String]? = nil
+    ) {
+        self.id = id
+        self.name = name
+        self.serverURL = serverURL
+        self.providerType = providerType
+        self.credentials = credentials
+        self.sites = sites
+        self.createdAt = Date()
+    }
+
+    var displayName: String {
+        if name.isEmpty {
+            return serverURL
+                .replacingOccurrences(of: "https://", with: "")
+                .replacingOccurrences(of: "http://", with: "")
+        }
+        return name
+    }
+
+    var icon: String {
+        providerType.icon
+    }
+
+    static func == (lhs: AnalyticsAccount, rhs: AnalyticsAccount) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
+// MARK: - Account Credentials
+
+struct AccountCredentials: Codable {
+    let token: String?      // Umami token
+    let apiKey: String?     // Plausible API key
+
+    var isEmpty: Bool {
+        (token == nil || token?.isEmpty == true) && (apiKey == nil || apiKey?.isEmpty == true)
+    }
+}
+
+// MARK: - Account Manager
+
+@MainActor
+class AccountManager: ObservableObject {
+    static let shared = AccountManager()
+
+    private let accountsKey = "analytics_accounts"
+    private let activeAccountKey = "active_account_id"
+
+    @Published var accounts: [AnalyticsAccount] = []
+    @Published var activeAccount: AnalyticsAccount?
+
+    private init() {
+        loadAccounts()
+    }
+
+    // MARK: - Account Management
+
+    func addAccount(_ account: AnalyticsAccount) {
+        // Check if account with same server URL and provider already exists
+        if let existingIndex = accounts.firstIndex(where: {
+            $0.serverURL == account.serverURL && $0.providerType == account.providerType
+        }) {
+            // Update existing account
+            accounts[existingIndex] = account
+        } else {
+            accounts.append(account)
+        }
+        saveAccounts()
+
+        // If this is the first account, make it active
+        if activeAccount == nil {
+            setActiveAccount(account)
+        }
+    }
+
+    func removeAccount(_ account: AnalyticsAccount) {
+        accounts.removeAll { $0.id == account.id }
+        saveAccounts()
+
+        // If we removed the active account, switch to another one
+        if activeAccount?.id == account.id {
+            if let firstAccount = accounts.first {
+                setActiveAccount(firstAccount)
+            } else {
+                clearActiveAccount()
+            }
+        }
+    }
+
+    func updateAccountSites(_ account: AnalyticsAccount, sites: [String]) {
+        print("AccountManager: updateAccountSites called for \(account.name) with \(sites.count) sites: \(sites)")
+        if let index = accounts.firstIndex(where: { $0.id == account.id }) {
+            var updated = accounts[index]
+            updated.sites = sites
+            accounts[index] = updated
+            saveAccounts()
+            print("AccountManager: saved accounts, account.sites = \(updated.sites ?? [])")
+
+            if activeAccount?.id == account.id {
+                activeAccount = updated
+                print("AccountManager: updated activeAccount.sites = \(updated.sites ?? [])")
+                // Update widget credentials with new sites
+                updateWidgetCredentials(for: updated)
+            }
+        } else {
+            print("AccountManager: account not found in accounts list!")
+        }
+    }
+
+    func setActiveAccount(_ account: AnalyticsAccount) {
+        activeAccount = account
+        UserDefaults.standard.set(account.id.uuidString, forKey: activeAccountKey)
+
+        // Apply credentials to the system
+        applyAccountCredentials(account)
+
+        // Update AuthManager's currentProvider to stay in sync
+        // This is critical for UI that depends on authManager.currentProvider
+        Task { @MainActor in
+            // Get AuthManager from environment through shared instance pattern
+            // Since we can't access EnvironmentObject here, we update KeychainService
+            // and AuthManager will read from there when needed
+        }
+    }
+
+    func clearActiveAccount() {
+        activeAccount = nil
+        UserDefaults.standard.removeObject(forKey: activeAccountKey)
+
+        // Clear system credentials
+        KeychainService.deleteAll()
+        SharedCredentials.delete()
+        AnalyticsManager.shared.logout()
+
+        // Notify that user should be logged out (no accounts left)
+        NotificationCenter.default.post(name: .allAccountsRemoved, object: nil)
+    }
+
+    // MARK: - Persistence
+
+    private func loadAccounts() {
+        if let data = UserDefaults.standard.data(forKey: accountsKey),
+           let decoded = try? JSONDecoder().decode([AnalyticsAccount].self, from: data) {
+            accounts = decoded
+        }
+
+        // Load active account
+        if let activeIdString = UserDefaults.standard.string(forKey: activeAccountKey),
+           let activeId = UUID(uuidString: activeIdString),
+           let account = accounts.first(where: { $0.id == activeId }) {
+            activeAccount = account
+        } else if let firstAccount = accounts.first {
+            // Default to first account if no active account set
+            activeAccount = firstAccount
+        }
+    }
+
+    private func saveAccounts() {
+        if let encoded = try? JSONEncoder().encode(accounts) {
+            UserDefaults.standard.set(encoded, forKey: accountsKey)
+        }
+    }
+
+    // MARK: - Apply Credentials
+
+    private func applyAccountCredentials(_ account: AnalyticsAccount) {
+        // Save to Keychain for the API services
+        try? KeychainService.save(account.serverURL, for: .serverURL)
+        try? KeychainService.save(account.providerType.rawValue, for: .providerType)
+
+        switch account.providerType {
+        case .umami:
+            if let token = account.credentials.token {
+                try? KeychainService.save(token, for: .token)
+            }
+            // Reconfigure UmamiAPI with stored credentials
+            UmamiAPI.shared.reconfigureFromKeychain()
+            AnalyticsManager.shared.setProvider(UmamiAPI.shared)
+
+        case .plausible:
+            if let apiKey = account.credentials.apiKey {
+                try? KeychainService.save(apiKey, for: .apiKey)
+            }
+            // Restore Plausible sites - use setSitesWithoutPersist to avoid double-save
+            print("AccountManager: applying Plausible account, account.sites = \(account.sites ?? [])")
+            if let sites = account.sites, !sites.isEmpty {
+                print("AccountManager: restoring \(sites.count) sites from account")
+                PlausibleSitesManager.shared.setSitesWithoutPersist(sites)
+            } else {
+                print("AccountManager: account has no sites, clearing PlausibleSitesManager")
+                PlausibleSitesManager.shared.clearAll()
+            }
+            // Reconfigure PlausibleAPI with stored credentials
+            PlausibleAPI.shared.reconfigureFromKeychain()
+            AnalyticsManager.shared.setProvider(PlausibleAPI.shared)
+        }
+
+        // Update widget
+        updateWidgetCredentials(for: account)
+
+        // Notify all views to refresh (with delay to ensure all data is set)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            NotificationCenter.default.post(name: .accountDidChange, object: nil)
+        }
+    }
+
+    private func updateWidgetCredentials(for account: AnalyticsAccount) {
+        let token: String
+        switch account.providerType {
+        case .umami:
+            token = account.credentials.token ?? ""
+        case .plausible:
+            token = account.credentials.apiKey ?? ""
+        }
+
+        // Legacy single-account support
+        let sharedProviderType: SharedCredentials.ProviderType = account.providerType == .umami ? .umami : .plausible
+        SharedCredentials.save(
+            serverURL: account.serverURL,
+            token: token,
+            providerType: sharedProviderType,
+            sites: account.sites
+        )
+
+        // New multi-account support for widget
+        syncAccountsToWidget()
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+
+    /// Syncs all accounts to widget storage
+    private func syncAccountsToWidget() {
+        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.de.godsapp.UmamiInsights") else {
+            return
+        }
+
+        // Convert accounts to widget format using Codable struct
+        struct WidgetAccount: Codable {
+            let id: String
+            let name: String
+            let serverURL: String
+            let providerType: String
+            let token: String
+            let sites: [String]?
+        }
+
+        let widgetAccounts = accounts.map { account -> WidgetAccount in
+            let token: String
+            switch account.providerType {
+            case .umami:
+                token = account.credentials.token ?? ""
+            case .plausible:
+                token = account.credentials.apiKey ?? ""
+            }
+
+            return WidgetAccount(
+                id: account.id.uuidString,
+                name: account.name,
+                serverURL: account.serverURL,
+                providerType: account.providerType.rawValue,
+                token: token,
+                sites: account.sites
+            )
+        }
+
+        let fileURL = containerURL.appendingPathComponent("widget_accounts.json")
+        do {
+            let data = try JSONEncoder().encode(widgetAccounts)
+            try data.write(to: fileURL)
+            print("AccountManager: synced \(widgetAccounts.count) accounts to widget, sites: \(widgetAccounts.map { $0.sites ?? [] })")
+        } catch {
+            print("Failed to sync accounts to widget: \(error)")
+        }
+    }
+
+    // MARK: - Migration from old system
+
+    func migrateFromLegacyCredentials() {
+        // Check if we already have accounts
+        guard accounts.isEmpty else { return }
+
+        // Try to migrate existing credentials
+        guard let serverURL = KeychainService.load(for: .serverURL),
+              let providerTypeString = KeychainService.load(for: .providerType),
+              let providerType = AnalyticsProviderType(rawValue: providerTypeString) else {
+            return
+        }
+
+        var credentials: AccountCredentials
+        var sites: [String]?
+
+        switch providerType {
+        case .umami:
+            let token = KeychainService.load(for: .token)
+            credentials = AccountCredentials(token: token, apiKey: nil)
+        case .plausible:
+            let apiKey = KeychainService.load(for: .apiKey)
+            credentials = AccountCredentials(token: nil, apiKey: apiKey)
+            sites = PlausibleSitesManager.shared.sites
+        }
+
+        let account = AnalyticsAccount(
+            name: "",
+            serverURL: serverURL,
+            providerType: providerType,
+            credentials: credentials,
+            sites: sites
+        )
+
+        addAccount(account)
+        setActiveAccount(account)
+    }
+
+    // MARK: - Helpers
+
+    var hasMultipleAccounts: Bool {
+        accounts.count > 1
+    }
+
+    var accountCount: Int {
+        accounts.count
+    }
+}

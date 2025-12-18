@@ -1,0 +1,442 @@
+/*
+  Localizable.strings (English)
+  Umami Insights
+*/
+
+// MARK: - General
+"app.name" = "Insights Flow";
+"button.cancel" = "Cancel";
+"button.done" = "Done";
+"button.save" = "Save";
+"button.delete" = "Delete";
+"button.create" = "Create";
+"button.close" = "Close";
+"button.copy" = "Copy";
+"button.copied" = "Copied!";
+"button.add" = "Add";
+"button.back" = "Back";
+"button.next" = "Next";
+"button.skip" = "Skip";
+"button.start" = "Let's go!";
+
+// MARK: - Tabs
+"tab.dashboard" = "Dashboard";
+"tab.admin" = "Admin";
+"tab.settings" = "Settings";
+
+// MARK: - Dashboard
+"dashboard.title" = "Dashboard";
+"dashboard.loading" = "Loading websites...";
+"dashboard.visitors" = "Visitors";
+"dashboard.pageviews" = "Pageviews";
+"dashboard.visits" = "Visits";
+"dashboard.bounces" = "Bounces";
+"dashboard.bounceRate" = "Bounce Rate";
+"dashboard.duration" = "Duration";
+"dashboard.live" = "Live now";
+"dashboard.addSite" = "Add Website";
+"dashboard.removeSite" = "Remove Website";
+"dashboard.removeSite.confirm.title" = "Remove Website?";
+"dashboard.removeSite.confirm.umami" = "This will permanently delete the website and all its data from Umami. This action cannot be undone.";
+"dashboard.removeSite.confirm.plausible" = "This will remove the website from the app. Your data in Plausible will not be affected.";
+"dashboard.empty.title" = "No Websites";
+"dashboard.empty.plausible" = "Add your first website to see statistics.";
+"dashboard.empty.umami" = "You don't have any websites in your Umami account yet.";
+
+// MARK: - Add Site
+"addSite.title" = "Add Website";
+"addSite.domain.header" = "Details";
+"addSite.domain.placeholder" = "example.com";
+"addSite.domain.footer" = "Enter the domain you're tracking in Plausible.";
+"addSite.umami.name.placeholder" = "Website Name";
+
+// MARK: - Settings
+"settings.editApiKey" = "Edit API Key";
+"settings.editApiKey.message" = "Enter your new API key.";
+
+// MARK: - Date Ranges
+"daterange.today" = "Today";
+"daterange.yesterday" = "Yesterday";
+"daterange.thisWeek" = "This Week";
+"daterange.last7days" = "7 Days";
+"daterange.last30days" = "30 Days";
+"daterange.thisMonth" = "This Month";
+"daterange.lastMonth" = "Last Month";
+"daterange.thisYear" = "This Year";
+"daterange.lastYear" = "Last Year";
+"daterange.custom" = "Custom";
+
+// MARK: - Metrics
+"metrics.pageviews" = "Pageviews";
+"metrics.visitors" = "Visitors";
+"metrics.visits" = "Visits";
+"metrics.bounceRate" = "Bounce Rate";
+"metrics.duration" = "Duration";
+
+// MARK: - Chart
+"chart.style.line" = "Line";
+"chart.style.bar" = "Bar";
+
+// MARK: - Sessions
+"sessions.title" = "Visitors";
+"sessions.tab.journeys" = "Journeys";
+"sessions.tab.sessions" = "Sessions";
+"sessions.loading" = "Loading sessions...";
+"sessions.empty" = "No Sessions";
+"sessions.empty.description" = "No visitors in the selected time period";
+"sessions.loadMore" = "Load More";
+"sessions.detail.title" = "Session Details";
+"sessions.detail.activities" = "Activities";
+"sessions.detail.device" = "Device";
+"sessions.detail.pageviews" = "Pageviews";
+"sessions.detail.loading" = "Loading session...";
+"sessions.visitor.title" = "Visitor Details";
+
+// MARK: - Journeys
+"journeys.loading" = "Loading user journeys...";
+"journeys.empty" = "No Journeys";
+"journeys.empty.description" = "No visitor journeys in the selected time period";
+"journeys.visitors %lld" = "%lld visitors";
+"journeys.steps %lld" = "%lld steps";
+"journeys.userJourney" = "User Journey";
+
+// MARK: - Admin
+"admin.title" = "Admin";
+"admin.section" = "Section";
+"admin.websites" = "Websites";
+"admin.teams" = "Teams";
+"admin.users" = "Users";
+"admin.details" = "Details";
+
+// MARK: - Admin Websites
+"admin.websites.new" = "New Website";
+"admin.websites.empty" = "No Websites";
+"admin.websites.empty.description" = "Create your first website";
+"admin.websites.edit" = "Edit Website";
+"admin.websites.delete" = "Delete Website?";
+"admin.websites.delete.message %@" = "All statistics for %@ will be permanently deleted.";
+"admin.websites.trackingCode" = "Tracking Code";
+"admin.websites.trackingCode.description" = "Add this code to the <head> section of your website:";
+"admin.websites.trackingCode.copy" = "Copy code";
+"admin.websites.shareLink" = "Share Link";
+"admin.websites.shareLink.copy" = "Copy link";
+"admin.websites.shareLink.create" = "Create Share Link";
+"admin.websites.shareLink.description" = "Create a public share link to share the statistics with others.";
+"admin.websites.shareLink.existing" = "Your public share link:";
+"admin.websites.shareLink.id" = "Share ID:";
+"admin.websites.shareLink.minLength" = "The share ID must be at least 8 characters long.";
+"admin.websites.shareLink.disable" = "Disable Share Link";
+"admin.websites.shareLink.enabled" = "Share Website";
+"admin.websites.team" = "Team Assignment";
+"admin.websites.noTeam" = "No Team";
+"admin.websites.team.hint" = "Team assignments can only be changed in the Umami web UI.";
+"admin.websites.code" = "Code";
+"admin.websites.share" = "Share";
+"admin.websites.plausible.hint" = "Enter the domain without https:// (e.g. example.com)";
+
+// MARK: - Admin Teams
+"admin.teams.new" = "New Team";
+"admin.teams.empty" = "No Teams";
+"admin.teams.empty.description" = "Create a team for collaboration";
+"admin.teams.delete" = "Delete Team?";
+"admin.teams.details" = "Team Details";
+"admin.teams.accessCode" = "Code:";
+"admin.teams.members" = "Team Members";
+"admin.teams.members.add" = "Add Member";
+"admin.teams.members.current" = "Current Members";
+"admin.teams.members.none" = "No Members";
+"admin.teams.members.select" = "Select...";
+"admin.teams.members.user" = "User";
+"admin.teams.role" = "Role";
+"admin.teams.role.owner" = "Owner";
+"admin.teams.role.manager" = "Manager";
+"admin.teams.role.member" = "Member";
+"admin.teams.role.viewonly" = "View Only";
+"admin.teams.websites" = "Websites:";
+
+// MARK: - Admin Users
+"admin.users.new" = "New User";
+"admin.users.empty" = "No Users";
+"admin.users.empty.description" = "Only you are here";
+"admin.users.delete" = "Delete User?";
+"admin.users.details" = "User Details";
+"admin.users.username" = "Username";
+"admin.users.password" = "Password";
+"admin.users.credentials" = "Credentials";
+"admin.users.permissions" = "Permissions";
+"admin.users.role" = "Role";
+"admin.users.role.admin" = "Administrator";
+"admin.users.role.user" = "User";
+
+// MARK: - Website Detail
+"website.topPages" = "Top Pages";
+"website.referrers" = "Referrers";
+"website.referrer.direct" = "Direct";
+"website.countries" = "Countries";
+"website.regions" = "Regions";
+"website.cities" = "Cities";
+"website.devices" = "Devices";
+"website.browsers" = "Browsers";
+"website.os" = "Operating Systems";
+"website.languages" = "Languages";
+"website.screens" = "Screens";
+"website.events" = "Events";
+"website.homepage" = "Homepage";
+"website.noTitle" = "(No Title)";
+
+// MARK: - Devices
+"device.desktop" = "Desktop";
+"device.mobile" = "Mobile";
+"device.tablet" = "Tablet";
+"device.unknown" = "Unknown";
+
+// MARK: - Settings
+"settings.title" = "Settings";
+"settings.account" = "Account";
+"settings.accounts" = "Accounts";
+"settings.accounts.footer" = "Swipe left to remove an account.";
+"settings.appearance" = "Appearance";
+"settings.appearance.system" = "System";
+"settings.appearance.light" = "Light";
+"settings.appearance.dark" = "Dark";
+"settings.notifications" = "Notifications";
+"settings.notifications.time" = "Time";
+"settings.notifications.stats" = "Statistics";
+"settings.notifications.stats.today" = "Today";
+"settings.notifications.stats.yesterday" = "Yesterday";
+"settings.notifications.stats.auto" = "Automatic";
+"settings.notifications.stats.auto.description" = "Before 12 PM → Yesterday's stats\nAfter 12 PM → Today's stats";
+"settings.notifications.website" = "Website";
+"settings.notifications.enabled" = "Enabled";
+"settings.notifications.permission" = "Allow Notifications";
+"settings.notifications.frequency" = "Frequency";
+"settings.notifications.footer %@" = "Receive daily or weekly summaries of your website statistics at %@.";
+"settings.about" = "About";
+"settings.about.intro" = "Show Introduction";
+"settings.about.version" = "Version";
+"settings.about.umami" = "Umami Analytics";
+"settings.about.license" = "Umami Analytics is open source under MIT license.";
+
+// MARK: - Support
+"settings.support.title" = "Support Development";
+"settings.support.subtitle" = "Help us improve Insights Flow";
+"settings.logout" = "Log Out";
+"settings.logout.confirm" = "Are you sure you want to log out?";
+
+// MARK: - Notifications
+"notifications.setting.disabled" = "Off";
+"notifications.setting.daily" = "Daily";
+"notifications.setting.weekly" = "Weekly";
+"notifications.datasource.today.desc" = "Shows today's statistics";
+"notifications.datasource.yesterday.desc" = "Shows yesterday's statistics";
+"notifications.datasource.auto.desc" = "Morning: yesterday, Evening: today";
+"notifications.last7days" = "Last 7 Days";
+"notifications.tapToView" = "Tap to view your statistics";
+
+// MARK: - Support / Donation
+"support.title" = "Support";
+"support.header" = "Support Insights Flow";
+"support.message" = "Software should be free.\n\nIf you can afford it right now, I'd appreciate your support. Otherwise, just enjoy using the app – that's totally fine.";
+"support.small" = "Small Gesture";
+"support.medium" = "Nice Gesture";
+"support.large" = "Big Gesture";
+"support.thankyou.title" = "Thank You!";
+"support.thankyou.message" = "Your support means a lot to me and helps keep this app going. Thank you!";
+"support.footer" = "All purchases are one-time.";
+"support.unavailable" = "Unavailable";
+"support.unavailable.description" = "Support options could not be loaded";
+"support.error" = "Error";
+"support.error.unverified" = "Purchase could not be verified";
+"support.error.pending" = "Purchase is being processed";
+
+// MARK: - Support Reminder
+"support.reminder.title" = "Enjoying Insights Flow?";
+"support.reminder.message" = "This app is free and ad-free. It was built with love.\n\nSoftware should be free. If you can afford it, please consider supporting the development. Otherwise, just keep using the app – that's totally okay!";
+"support.reminder.support" = "Happy to Support";
+"support.reminder.already" = "Already Did";
+"support.reminder.later" = "Not Now";
+
+// MARK: - Compare
+"compare.title" = "Compare";
+"compare.type" = "Time Period";
+"compare.week" = "Week";
+"compare.month" = "Month";
+"compare.year" = "Year";
+"compare.periodA" = "Period A";
+"compare.periodB" = "Period B";
+"compare.button" = "Compare";
+"compare.loading" = "Loading data...";
+"compare.vs" = "VS";
+"compare.calendarWeek" = "CW";
+"compare.inComparison" = "in comparison";
+"compare.months.jan" = "Jan";
+"compare.months.feb" = "Feb";
+"compare.months.mar" = "Mar";
+"compare.months.apr" = "Apr";
+"compare.months.may" = "May";
+"compare.months.jun" = "Jun";
+"compare.months.jul" = "Jul";
+"compare.months.aug" = "Aug";
+"compare.months.sep" = "Sep";
+"compare.months.oct" = "Oct";
+"compare.months.nov" = "Nov";
+"compare.months.dec" = "Dec";
+
+// MARK: - Realtime
+"realtime.title" = "Realtime";
+"realtime.active" = "Active Visitors";
+"realtime.current" = "Currently Online";
+"realtime.last30min" = "last 30 minutes";
+"realtime.today" = "Today";
+"realtime.pageviews" = "Pageviews";
+"realtime.activePages" = "Active Pages";
+"realtime.recentActivity" = "Recent Activity";
+"realtime.countries" = "Countries";
+"realtime.from" = "From:";
+
+// MARK: - Retention
+"retention.title" = "Retention";
+"retention.loading" = "Loading retention data...";
+"retention.empty" = "No Retention Data";
+"retention.empty.description" = "There were no returning visitors in the selected time period.";
+"retention.what.title" = "What is Retention?";
+"retention.what.description" = "Retention shows how many visitors return after their first visit. High retention means users regularly visit your website.";
+"retention.noReturning" = "No returning visitors yet";
+"retention.noReturning.description" = "There were no returning visitors in the selected time period.";
+"retention.visitors" = "Visitors";
+"retention.days" = "Days";
+"retention.average" = "Average";
+"retention.max" = "Max Retention";
+"retention.overTime" = "Retention Over Time";
+"retention.day" = "Day";
+"retention.rate" = "Rate";
+"retention.returning" = "Returning Visitors";
+"retention.returningNote" = "Shows only days with at least 1 returner";
+"retention.firstVisit" = "First Visit";
+"retention.after" = "After";
+"retention.returned" = "Returned";
+"retention.oneDay" = "1 day";
+"retention.nDays %lld" = "%lld days";
+
+// MARK: - Pages
+"pages.title" = "Pages";
+"pages.empty" = "No Pages";
+"pages.empty.description" = "No pages were visited in the selected time period.";
+"pages.visited" = "Visited Pages";
+"pages.count" = "Pages";
+"pages.showFullUrl" = "Shows page titles with full URL including query parameters.";
+"pages.homepage" = "Homepage";
+
+// MARK: - Insights
+"insights.title" = "Compare";
+"insights.pageviewsComparison" = "Pageviews Comparison";
+"insights.thisWeek" = "This Week";
+"insights.lastWeek" = "Last Week";
+"insights.lastMonth" = "Last Month";
+
+// MARK: - Onboarding
+"onboarding.welcome.title" = "Welcome to Insights Flow";
+"onboarding.welcome.subtitle" = "Your website statistics always with you – privacy-friendly and clear.";
+"onboarding.welcome.umami" = "Open source, self-hosted";
+"onboarding.welcome.plausible" = "Simple and privacy-friendly";
+"onboarding.metrics.title" = "Understand Visitors";
+"onboarding.metrics.subtitle" = "Learn the key metrics:";
+"onboarding.metrics.visitors" = "Visitors: Unique visitors to your website";
+"onboarding.metrics.pageviews" = "Pageviews: How often pages were viewed";
+"onboarding.metrics.bounces" = "Bounces: Visitors who only saw one page";
+"onboarding.realtime.title" = "Realtime Data";
+"onboarding.realtime.subtitle" = "See who's on your website right now:";
+"onboarding.realtime.live" = "Live visitors in realtime";
+"onboarding.realtime.activity" = "Current page views";
+"onboarding.realtime.journeys" = "Track visitor journeys";
+"onboarding.notifications.title" = "Notifications";
+"onboarding.notifications.subtitle" = "Stay informed:";
+"onboarding.notifications.daily" = "Daily statistics updates";
+"onboarding.notifications.weekly" = "Weekly summaries";
+"onboarding.notifications.custom" = "Custom scheduling";
+"onboarding.comparison.title" = "Umami vs Plausible";
+"onboarding.comparison.subtitle" = "Both providers differ in features:";
+"onboarding.comparison.both" = "Both Providers";
+"onboarding.comparison.both.text" = "Dashboard, Charts, Pageviews, Visitors, Bounces";
+"onboarding.comparison.umami" = "Umami Extras";
+"onboarding.comparison.umami.text" = "Sessions, Journeys, Share Links, Realtime Details";
+"onboarding.comparison.plausible" = "Plausible";
+"onboarding.comparison.plausible.text" = "Privacy-first – no individual sessions or journeys";
+
+// MARK: - Login
+"login.title" = "Login";
+"login.subtitle" = "Enter your credentials";
+"login.subtitle.choose" = "Choose your analytics provider";
+"login.server" = "Server URL";
+"login.server.placeholder" = "Server URL (e.g. https://analytics.example.com)";
+"login.username" = "Username";
+"login.password" = "Password";
+"login.button" = "Connect";
+"login.error" = "Login Failed";
+"login.cloud.title" = "Cloud";
+"login.cloud.description" = "Official cloud service";
+"login.selfhosted.title" = "Self-hosted";
+"login.selfhosted.description" = "Your own server";
+"login.serverType" = "Server Type";
+"login.umami.description" = "Open source, privacy-focused analytics";
+"login.plausible.description" = "Simple, privacy-friendly analytics";
+"login.siteId.placeholder" = "Domain (e.g. example.com)";
+"login.apiKey.placeholder" = "API Key";
+"login.apiKey.help" = "Where do I find my API key?";
+"login.accountName.placeholder" = "Account name (optional)";
+
+// MARK: - Errors
+"error.title" = "Error";
+"error.generic" = "An error occurred";
+"error.network" = "Network Error";
+"error.auth" = "Login Failed";
+"error.invalidURL" = "Invalid server URL";
+"error.notAuthenticated" = "Not authenticated";
+"error.invalidCredentials" = "Invalid credentials";
+"error.invalidResponse" = "Invalid server response";
+"error.unauthorized" = "Unauthorized - please check your credentials";
+"error.server %lld" = "Server error: %lld";
+
+// MARK: - Account Switcher
+"account.switcher.title" = "Accounts";
+"account.switcher.accounts" = "Your Accounts";
+"account.switcher.addAccount" = "Add Account";
+"account.add.title" = "Add Account";
+"account.add.provider" = "Provider";
+"account.add.name" = "Name (optional)";
+"account.add.serverURL" = "Server URL";
+"account.add.details" = "Account Details";
+"account.add.credentials" = "Credentials";
+"account.add.username" = "Username";
+"account.add.password" = "Password";
+"account.add.apiKey" = "API Key";
+"account.add.apiKey.hint" = "Create an API Key in your Plausible settings under Account Settings → API Keys.";
+"account.add.button" = "Add Account";
+"account.edit.title" = "Edit Account";
+"account.edit.name" = "Name";
+"account.edit.name.header" = "Account Name";
+"account.edit.name.footer" = "Give this account a name to identify it more easily.";
+
+// MARK: - Dashboard Settings
+"dashboard.settings.title" = "Dashboard Settings";
+"dashboard.settings.graph" = "Graph";
+"dashboard.settings.showGraph" = "Show Graph";
+"dashboard.settings.graph.footer" = "Display a trend graph on each website card.";
+"dashboard.settings.metrics" = "Displayed Metrics";
+"dashboard.settings.metrics.visitors" = "Visitors";
+"dashboard.settings.metrics.pageviews" = "Pageviews";
+"dashboard.settings.metrics.visits" = "Visits";
+"dashboard.settings.metrics.bounceRate" = "Bounce Rate";
+"dashboard.settings.metrics.duration" = "Duration";
+"dashboard.settings.metrics.footer" = "Choose which statistics to display on the dashboard.";
+
+// MARK: - Accessibility
+"accessibility.chartStyle.toggle" = "Toggle Chart Style";
+"accessibility.chartStyle.hint" = "Switch between line and bar chart";
+"accessibility.addWebsite" = "Add Website";
+"accessibility.liveVisitors %lld" = "%lld active visitors";
+"accessibility.statCard %@ %lld %@" = "%@: %lld, %@ compared to previous period";
+"accessibility.chart.pageviews" = "Pageviews over time";
+"accessibility.chart.visitors" = "Visitors over time";
+"accessibility.dateRange.selected" = "Selected";
+"accessibility.dateRange.notSelected" = "Not selected";

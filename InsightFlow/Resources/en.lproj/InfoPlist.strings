@@ -1,0 +1,7 @@
+/*
+  InfoPlist.strings (English)
+  Umami Insights
+*/
+
+CFBundleDisplayName = "Insights Flow";
+CFBundleName = "Insights Flow";

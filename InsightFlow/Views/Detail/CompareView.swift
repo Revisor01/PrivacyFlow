@@ -701,7 +701,7 @@ struct CompareView: View {
                 )
                 .foregroundStyle(chartColor)
                 .lineStyle(StrokeStyle(lineWidth: 2.5))
-                .interpolationMethod(.catmullRom)
+                .interpolationMethod(.monotone)
             }
 
             ForEach(Array(currentData1.enumerated()), id: \.offset) { index, point in
@@ -716,7 +716,7 @@ struct CompareView: View {
                         endPoint: .bottom
                     )
                 )
-                .interpolationMethod(.catmullRom)
+                .interpolationMethod(.monotone)
             }
 
             ForEach(Array(currentData2.enumerated()), id: \.offset) { index, point in
@@ -727,7 +727,7 @@ struct CompareView: View {
                 )
                 .foregroundStyle(.orange)
                 .lineStyle(StrokeStyle(lineWidth: 2, dash: [5, 5]))
-                .interpolationMethod(.catmullRom)
+                .interpolationMethod(.monotone)
             }
 
             // Datenpunkte
@@ -792,6 +792,7 @@ struct CompareView: View {
             }
         }
         .chartLegend(.hidden)
+        .chartYScale(domain: .automatic(includesZero: true))
         .frame(height: 220)
     }
 

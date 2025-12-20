@@ -3,5 +3,5 @@
   Umami Insights
 */
 
-CFBundleDisplayName = "Insights Flow";
-CFBundleName = "Insights Flow";
+CFBundleDisplayName = "InsightFlow";
+CFBundleName = "InsightFlow";

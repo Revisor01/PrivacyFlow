@@ -65,7 +65,7 @@ struct WidgetAccount: Codable, Identifiable, Hashable {
 }
 
 struct WidgetAccountsStorage {
-    private static let appGroupID = "group.de.godsapp.UmamiInsights"
+    private static let appGroupID = "group.de.godsapp.InsightFlow"
     private static let fileName = "widget_accounts.json"
 
     static func loadAccounts() -> [WidgetAccount] {
@@ -131,7 +131,7 @@ struct WidgetAccountsStorage {
 }
 
 struct WidgetCredentials {
-    private static let appGroupID = "group.de.godsapp.UmamiInsights"
+    private static let appGroupID = "group.de.godsapp.InsightFlow"
     private static let fileName = "widget_credentials.encrypted"
     private static let legacyFileName = "widget_credentials.json"
     private static let keyFileName = "widget_credentials.key"
@@ -569,6 +569,115 @@ struct FilteredWebsiteOptionsProvider: DynamicOptionsProvider {
     }
 }
 
+// MARK: - Widget Cache
+
+/// Einfacher Cache für Widget-Daten, der im App Group Container gespeichert wird
+struct WidgetCache {
+    private static let appGroupID = "group.de.godsapp.InsightFlow"
+    private static let cacheFolder = "analytics_cache"
+
+    private static var cacheDirectory: URL? {
+        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupID) else {
+            return nil
+        }
+        let cacheURL = containerURL.appendingPathComponent(cacheFolder)
+        if !FileManager.default.fileExists(atPath: cacheURL.path) {
+            try? FileManager.default.createDirectory(at: cacheURL, withIntermediateDirectories: true)
+        }
+        return cacheURL
+    }
+
+    private static func cacheKey(websiteId: String, timeRange: WidgetTimeRange) -> String {
+        "widget_\(websiteId)_\(timeRange.rawValue)"
+    }
+
+    struct CachedWidgetData: Codable {
+        let websiteName: String
+        let websiteId: String
+        let providerType: String
+        let visitors: Int
+        let pageviews: Int
+        let activeVisitors: Int
+        let visitorsChange: Int
+        let pageviewsChange: Int
+        let sparklineData: [Int]
+        let timeRange: String
+        let cachedAt: Date
+
+        func toWidgetData() -> WidgetData {
+            WidgetData(
+                websiteName: websiteName,
+                websiteId: websiteId,
+                providerType: providerType,
+                visitors: visitors,
+                pageviews: pageviews,
+                activeVisitors: activeVisitors,
+                visitorsChange: visitorsChange,
+                pageviewsChange: pageviewsChange,
+                sparklineData: sparklineData,
+                timeRange: timeRange,
+                isConfigured: true,
+                errorMessage: nil
+            )
+        }
+    }
+
+    static func save(_ data: WidgetData, websiteId: String, timeRange: WidgetTimeRange) {
+        guard let cacheDir = cacheDirectory, data.errorMessage == nil else { return }
+
+        let cached = CachedWidgetData(
+            websiteName: data.websiteName,
+            websiteId: data.websiteId ?? websiteId,
+            providerType: data.providerType ?? "umami",
+            visitors: data.visitors,
+            pageviews: data.pageviews,
+            activeVisitors: data.activeVisitors,
+            visitorsChange: data.visitorsChange,
+            pageviewsChange: data.pageviewsChange,
+            sparklineData: data.sparklineData,
+            timeRange: data.timeRange,
+            cachedAt: Date()
+        )
+
+        let fileURL = cacheDir.appendingPathComponent("\(cacheKey(websiteId: websiteId, timeRange: timeRange)).json")
+
+        do {
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .iso8601
+            let encoded = try encoder.encode(cached)
+            try encoded.write(to: fileURL, options: [.atomic])
+            widgetLog("Cache saved for \(websiteId)")
+        } catch {
+            widgetLog("Cache save error: \(error)")
+        }
+    }
+
+    static func load(websiteId: String, timeRange: WidgetTimeRange) -> WidgetData? {
+        guard let cacheDir = cacheDirectory else { return nil }
+
+        let fileURL = cacheDir.appendingPathComponent("\(cacheKey(websiteId: websiteId, timeRange: timeRange)).json")
+
+        guard FileManager.default.fileExists(atPath: fileURL.path) else {
+            return nil
+        }
+
+        do {
+            let data = try Data(contentsOf: fileURL)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            let cached = try decoder.decode(CachedWidgetData.self, from: data)
+
+            // Cache ist maximal 1 Stunde gültig, aber wir geben ihn trotzdem zurück
+            // wenn kein Netzwerk verfügbar ist
+            widgetLog("Cache loaded for \(websiteId), age: \(Int(Date().timeIntervalSince(cached.cachedAt)))s")
+            return cached.toWidgetData()
+        } catch {
+            widgetLog("Cache load error: \(error)")
+            return nil
+        }
+    }
+}
+
 // MARK: - Widget Data
 
 struct WidgetData {
@@ -587,7 +696,7 @@ struct WidgetData {
 
     var deepLinkURL: URL? {
         guard let websiteId = websiteId, let provider = providerType else { return nil }
-        return URL(string: "insightsflow://website?id=\(websiteId)&provider=\(provider)")
+        return URL(string: "insightflow://website?id=\(websiteId)&provider=\(provider)")
     }
 
     static let placeholder = WidgetData(
@@ -688,6 +797,9 @@ struct Provider: AppIntentTimelineProvider {
             return .selectWebsite
         }
 
+        // Versuche zuerst aus dem Cache zu laden (für Offline-Support)
+        let cachedData = WidgetCache.load(websiteId: website.id, timeRange: config.timeRange)
+
         // Try to get credentials - prioritize website's associated account
         // The widget should work independently of the app's currently active account
         let accounts = WidgetAccountsStorage.loadAccounts()
@@ -780,11 +892,26 @@ struct Provider: AppIntentTimelineProvider {
         widgetLog("fetchStats: provider=\(credentials.providerType), website=\(effectiveWebsite.id), timeRange=\(config.timeRange.rawValue)")
 
         // Route to provider-specific implementation
+        let result: WidgetData
         if isPlausible {
-            return await fetchPlausibleStats(creds: credentials, website: effectiveWebsite, timeRange: config.timeRange)
+            result = await fetchPlausibleStats(creds: credentials, website: effectiveWebsite, timeRange: config.timeRange)
         } else {
-            return await fetchUmamiStats(creds: credentials, website: effectiveWebsite, timeRange: config.timeRange)
+            result = await fetchUmamiStats(creds: credentials, website: effectiveWebsite, timeRange: config.timeRange)
         }
+
+        // Bei Erfolg: Cache speichern
+        if result.errorMessage == nil {
+            WidgetCache.save(result, websiteId: effectiveWebsite.id, timeRange: config.timeRange)
+            return result
+        }
+
+        // Bei Netzwerkfehler: Gecachte Daten zurückgeben falls vorhanden
+        if let cached = cachedData {
+            widgetLog("fetchStats: returning cached data due to network error")
+            return cached
+        }
+
+        return result
     }
 
     // MARK: - Umami Stats

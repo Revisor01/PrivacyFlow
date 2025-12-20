@@ -517,7 +517,7 @@ struct WebsiteDetailView: View {
                 )
                 .foregroundStyle(selectedMetric.color)
                 .lineStyle(StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
-                .interpolationMethod(.catmullRom)
+                .interpolationMethod(.monotone)
             }
 
             ForEach(currentChartData) { point in
@@ -532,7 +532,7 @@ struct WebsiteDetailView: View {
                         endPoint: .bottom
                     )
                 )
-                .interpolationMethod(.catmullRom)
+                .interpolationMethod(.monotone)
             }
 
             if currentChartData.count <= 31 {
@@ -587,6 +587,7 @@ struct WebsiteDetailView: View {
                 AxisValueLabel()
             }
         }
+        .chartYScale(domain: .automatic(includesZero: true))
         .chartOverlay { proxy in
             GeometryReader { geometry in
                 Rectangle()
@@ -610,6 +611,11 @@ struct WebsiteDetailView: View {
         let barUnit: Calendar.Component = isYearlyData ? .month : (isHourlyData ? .hour : .day)
 
         return Chart {
+            // X-Achsen-Basislinie für Orientierung
+            RuleMark(y: .value("Baseline", 0))
+                .foregroundStyle(.gray.opacity(0.3))
+                .lineStyle(StrokeStyle(lineWidth: 1))
+
             ForEach(currentChartData) { point in
                 BarMark(
                     x: .value("Datum", point.date, unit: barUnit),

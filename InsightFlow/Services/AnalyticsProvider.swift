@@ -79,6 +79,17 @@ struct AnalyticsStats {
     let visits: StatValue
     let bounces: StatValue
     let totaltime: StatValue
+
+    /// Konvertiert zu WebsiteStats für die Dashboard-Anzeige
+    func toWebsiteStats() -> WebsiteStats {
+        WebsiteStats(
+            pageviews: pageviews,
+            visitors: visitors,
+            visits: visits,
+            bounces: bounces,
+            totaltime: totaltime
+        )
+    }
 }
 
 

@@ -385,7 +385,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsightFlow/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Umami Insights";
+				INFOPLIST_KEY_CFBundleDisplayName = InsightFlow;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -398,7 +398,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.godsapp.UmamiInsight;
+				PRODUCT_BUNDLE_IDENTIFIER = de.godsapp.InsightFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -421,7 +421,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InsightFlow/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Umami Insights";
+				INFOPLIST_KEY_CFBundleDisplayName = InsightFlow;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -434,7 +434,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.godsapp.UmamiInsight;
+				PRODUCT_BUNDLE_IDENTIFIER = de.godsapp.InsightFlow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -465,7 +465,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.godsapp.UmamiInsight.InsightFlowWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = de.godsapp.InsightFlow.InsightFlowWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -497,7 +497,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.godsapp.UmamiInsight.InsightFlowWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = de.godsapp.InsightFlow.InsightFlowWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;

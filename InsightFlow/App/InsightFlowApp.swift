@@ -3,7 +3,7 @@ import BackgroundTasks
 import UserNotifications
 
 @main
-struct UmamiInsightsApp: App {
+struct InsightFlowApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var authManager = AuthManager()
     @StateObject private var notificationManager = NotificationManager()
@@ -26,8 +26,8 @@ struct UmamiInsightsApp: App {
     }
 
     private func handleDeepLink(_ url: URL) {
-        // Format: insightsflow://website?id=xxx&provider=umami
-        guard url.scheme == "insightsflow",
+        // Format: insightflow://website?id=xxx&provider=umami
+        guard url.scheme == "insightflow",
               url.host == "website",
               let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = components.queryItems else {
@@ -59,7 +59,7 @@ struct UmamiInsightsApp: App {
 
     private func registerBackgroundTasks() {
         BGTaskScheduler.shared.register(
-            forTaskWithIdentifier: "de.godsapp.UmamiInsights.refresh",
+            forTaskWithIdentifier: "de.godsapp.InsightFlow.refresh",
             using: nil
         ) { task in
             Self.handleAppRefresh(task: task as! BGAppRefreshTask)
@@ -85,7 +85,7 @@ struct UmamiInsightsApp: App {
     }
 
     private static func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "de.godsapp.UmamiInsights.refresh")
+        let request = BGAppRefreshTaskRequest(identifier: "de.godsapp.InsightFlow.refresh")
 
         // Lade konfigurierte Zeit oder Standard 9:00 Uhr
         let savedTime = UserDefaults.standard.object(forKey: "notificationTime") as? Date

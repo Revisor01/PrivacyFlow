@@ -62,6 +62,7 @@ struct WebsiteCard: View {
     var onShareLinkUpdated: ((Website) -> Void)? = nil
     var onRemoveSite: (() -> Void)? = nil
     var isUmamiProvider: Bool = true
+    var isHourlyData: Bool = false
 
     @State private var showTrackingCode = false
     @State private var showShareSheet = false
@@ -309,7 +310,7 @@ struct WebsiteCard: View {
                 )
                 .foregroundStyle(.blue)
                 .lineStyle(StrokeStyle(lineWidth: 2))
-                .interpolationMethod(.catmullRom)
+                .interpolationMethod(.monotone)
 
                 AreaMark(
                     x: .value("Datum", point.date),
@@ -322,7 +323,7 @@ struct WebsiteCard: View {
                         endPoint: .bottom
                     )
                 )
-                .interpolationMethod(.catmullRom)
+                .interpolationMethod(.monotone)
             }
         }
         .chartXAxis {
@@ -332,6 +333,7 @@ struct WebsiteCard: View {
             }
         }
         .chartYAxis(.hidden)
+        .chartYScale(domain: .automatic(includesZero: true))
         .frame(maxWidth: .infinity)
         .frame(height: 70)
         .accessibilityElement(children: .ignore)
@@ -340,9 +342,14 @@ struct WebsiteCard: View {
 
     private var barSparkline: some View {
         Chart {
+            // X-Achsen-Basislinie für Orientierung
+            RuleMark(y: .value("Baseline", 0))
+                .foregroundStyle(.gray.opacity(0.3))
+                .lineStyle(StrokeStyle(lineWidth: 1))
+
             ForEach(sparklineData) { point in
                 BarMark(
-                    x: .value("Datum", point.date, unit: .hour),
+                    x: .value("Datum", point.date, unit: isHourlyData ? .hour : .day),
                     y: .value("Aufrufe", point.value)
                 )
                 .foregroundStyle(
@@ -357,8 +364,13 @@ struct WebsiteCard: View {
         }
         .chartXAxis {
             AxisMarks(values: sparklineXAxisValues) { _ in
-                AxisValueLabel(format: .dateTime.hour().minute())
-                    .font(.caption2)
+                if isHourlyData {
+                    AxisValueLabel(format: .dateTime.hour().minute())
+                        .font(.caption2)
+                } else {
+                    AxisValueLabel(format: .dateTime.day().month())
+                        .font(.caption2)
+                }
             }
         }
         .chartYAxis(.hidden)

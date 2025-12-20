@@ -7,8 +7,6 @@
 		<string>en</string>
 		<string>de</string>
 	</array>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>

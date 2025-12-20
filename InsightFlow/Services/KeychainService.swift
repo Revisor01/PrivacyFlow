@@ -2,7 +2,7 @@ import Foundation
 import Security
 
 enum KeychainService: Sendable {
-    private static let service = "de.godsapp.UmamiInsights"
+    private static let service = "de.godsapp.InsightFlow"
 
     enum Key: String, Sendable {
         case serverURL = "serverURL"

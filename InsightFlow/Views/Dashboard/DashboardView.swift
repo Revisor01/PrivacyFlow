@@ -17,6 +17,11 @@ struct DashboardView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
+                    // Offline-Banner
+                    if viewModel.isOffline {
+                        offlineBanner
+                    }
+
                     // Account Switcher (only show if multiple accounts)
                     if accountManager.hasMultipleAccounts {
                         accountSwitcherButton
@@ -42,7 +47,8 @@ struct DashboardView: View {
                                             await viewModel.removeSite(website.id)
                                         }
                                     },
-                                    isUmamiProvider: !currentProviderIsPlausible
+                                    isUmamiProvider: !currentProviderIsPlausible,
+                                    isHourlyData: selectedDateRange.unit == "hour"
                                 )
                                 .onTapGesture {
                                     selectedWebsite = website
@@ -152,6 +158,21 @@ struct DashboardView: View {
     /// Use AccountManager as source of truth for provider type
     private var currentProviderIsPlausible: Bool {
         AccountManager.shared.activeAccount?.providerType == .plausible
+    }
+
+    private var offlineBanner: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "wifi.slash")
+                .font(.subheadline)
+            Text("dashboard.offline")
+                .font(.subheadline)
+            Spacer()
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 10)
+        .background(Color.orange.opacity(0.15))
+        .foregroundStyle(.orange)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 
     private var emptyStateView: some View {
@@ -621,28 +642,45 @@ class DashboardViewModel: ObservableObject {
     @Published var sparklineData: [String: [TimeSeriesPoint]] = [:]
     @Published var isLoading = false
     @Published var error: String?
+    @Published var isOffline = false
 
     private let umamiAPI = UmamiAPI.shared
     private let plausibleAPI = PlausibleAPI.shared
+    private let cache = AnalyticsCacheService.shared
     private var currentDateRange: DateRange = .today
 
     private var isPlausible: Bool {
         AnalyticsManager.shared.providerType == .plausible
     }
 
+    private var currentAccountId: String {
+        AccountManager.shared.activeAccount?.id.uuidString ?? "default"
+    }
+
     func loadData(dateRange: DateRange) async {
         isLoading = true
         currentDateRange = dateRange
-        defer { isLoading = false }
+        isOffline = false
 
+        // 1. Lade zuerst aus dem Cache für sofortige Anzeige
+        loadFromCache(dateRange: dateRange)
+
+        // 2. Dann versuche frische Daten zu laden
         do {
             if isPlausible {
                 let analyticsWebsites = try await plausibleAPI.getAnalyticsWebsites()
                 websites = analyticsWebsites.map { site in
                     Website(id: site.id, name: site.name, domain: site.domain, shareId: nil, teamId: nil, resetAt: nil, createdAt: nil)
                 }
+                // Cache die Websites
+                cache.saveWebsites(analyticsWebsites.toCached(), accountId: currentAccountId)
             } else {
                 websites = try await umamiAPI.getWebsites()
+                // Cache die Websites
+                let analyticsWebsites = websites.map { site in
+                    AnalyticsWebsite(id: site.id, name: site.name, domain: site.domain ?? site.name, shareId: site.shareId, provider: .umami)
+                }
+                cache.saveWebsites(analyticsWebsites.toCached(), accountId: currentAccountId)
             }
 
             await withTaskGroup(of: Void.self) { group in
@@ -650,8 +688,54 @@ class DashboardViewModel: ObservableObject {
                     group.addTask { await self.loadWebsiteData(website, dateRange: dateRange) }
                 }
             }
+
+            isLoading = false
         } catch {
-            self.error = error.localizedDescription
+            // Prüfe ob es sich um einen echten Netzwerkfehler handelt
+            let isNetworkError = (error as? URLError)?.code == .notConnectedToInternet ||
+                                 (error as? URLError)?.code == .networkConnectionLost ||
+                                 (error as? URLError)?.code == .timedOut ||
+                                 (error as? URLError)?.code == .cannotFindHost ||
+                                 (error as? URLError)?.code == .cannotConnectToHost
+
+            if websites.isEmpty {
+                self.error = error.localizedDescription
+            } else if isNetworkError {
+                // Nur bei echtem Netzwerkfehler Offline-Indikator zeigen
+                isOffline = true
+            }
+            // Bei anderen Fehlern (z.B. API-Fehler) keinen Offline-Banner zeigen
+            isLoading = false
+        }
+    }
+
+    /// Lädt Daten aus dem lokalen Cache
+    private func loadFromCache(dateRange: DateRange) {
+        // Lade gecachte Websites
+        if let cachedWebsites = cache.loadWebsites(accountId: currentAccountId) {
+            let analyticsWebsites = cachedWebsites.data.toAnalyticsWebsites()
+            websites = analyticsWebsites.map { site in
+                Website(id: site.id, name: site.name, domain: site.domain, shareId: site.shareId, teamId: nil, resetAt: nil, createdAt: nil)
+            }
+
+            // Lade gecachte Stats und Sparklines für jede Website
+            for website in websites {
+                let dateRangeId = dateRange.preset.rawValue
+
+                // Stats laden
+                if let cachedStats = cache.loadStats(websiteId: website.id, dateRangeId: dateRangeId) {
+                    stats[website.id] = cachedStats.data.toAnalyticsStats().toWebsiteStats()
+                }
+
+                // Sparkline laden
+                if let cachedSparkline = cache.loadSparkline(websiteId: website.id, dateRangeId: dateRangeId) {
+                    let points = cachedSparkline.data.toAnalyticsChartPoints()
+                    let formatter = ISO8601DateFormatter()
+                    sparklineData[website.id] = points.map { point in
+                        TimeSeriesPoint(x: formatter.string(from: point.date), y: point.value)
+                    }
+                }
+            }
         }
     }
 
@@ -692,20 +776,27 @@ class DashboardViewModel: ObservableObject {
     }
 
     private func loadStats(for websiteId: String, dateRange: DateRange) async {
+        let dateRangeId = dateRange.preset.rawValue
+
         do {
+            let analyticsStats: AnalyticsStats
             if isPlausible {
-                let analyticsStats = try await plausibleAPI.getAnalyticsStats(websiteId: websiteId, dateRange: dateRange)
-                stats[websiteId] = WebsiteStats(
-                    pageviews: StatValue(value: analyticsStats.pageviews.value, change: analyticsStats.pageviews.change),
-                    visitors: StatValue(value: analyticsStats.visitors.value, change: analyticsStats.visitors.change),
-                    visits: StatValue(value: analyticsStats.visits.value, change: analyticsStats.visits.change),
-                    bounces: StatValue(value: analyticsStats.bounces.value, change: analyticsStats.bounces.change),
-                    totaltime: StatValue(value: analyticsStats.totaltime.value, change: analyticsStats.totaltime.change)
-                )
+                analyticsStats = try await plausibleAPI.getAnalyticsStats(websiteId: websiteId, dateRange: dateRange)
             } else {
                 let websiteStats = try await umamiAPI.getStats(websiteId: websiteId, dateRange: dateRange)
-                stats[websiteId] = websiteStats
+                analyticsStats = AnalyticsStats(
+                    visitors: websiteStats.visitors,
+                    pageviews: websiteStats.pageviews,
+                    visits: websiteStats.visits,
+                    bounces: websiteStats.bounces,
+                    totaltime: websiteStats.totaltime
+                )
             }
+
+            stats[websiteId] = analyticsStats.toWebsiteStats()
+
+            // Cache die Stats
+            cache.saveStats(CachedStats(from: analyticsStats), websiteId: websiteId, dateRangeId: dateRangeId)
         } catch {
             #if DEBUG
             print("Failed to load stats for \(websiteId): \(error)")
@@ -730,18 +821,27 @@ class DashboardViewModel: ObservableObject {
     }
 
     private func loadSparkline(for websiteId: String, dateRange: DateRange) async {
+        let dateRangeId = dateRange.preset.rawValue
+
         do {
+            let chartPoints: [AnalyticsChartPoint]
             if isPlausible {
-                let data = try await plausibleAPI.getPageviewsData(websiteId: websiteId, dateRange: dateRange)
-                let formatter = ISO8601DateFormatter()
-                let rawData = data.map { point in
-                    TimeSeriesPoint(x: formatter.string(from: point.date), y: point.value)
-                }
-                sparklineData[websiteId] = fillMissingTimeSlots(data: rawData, dateRange: dateRange)
+                chartPoints = try await plausibleAPI.getPageviewsData(websiteId: websiteId, dateRange: dateRange)
             } else {
                 let pageviews = try await umamiAPI.getPageviews(websiteId: websiteId, dateRange: dateRange)
-                sparklineData[websiteId] = fillMissingTimeSlots(data: pageviews.pageviews, dateRange: dateRange)
+                chartPoints = pageviews.pageviews.map { point in
+                    AnalyticsChartPoint(date: point.date, value: point.value)
+                }
             }
+
+            let formatter = ISO8601DateFormatter()
+            let rawData = chartPoints.map { point in
+                TimeSeriesPoint(x: formatter.string(from: point.date), y: point.value)
+            }
+            sparklineData[websiteId] = fillMissingTimeSlots(data: rawData, dateRange: dateRange)
+
+            // Cache die Sparkline-Daten
+            cache.saveSparkline(chartPoints.toCached(), websiteId: websiteId, dateRangeId: dateRangeId)
         } catch {
             #if DEBUG
             print("Failed to load sparkline for \(websiteId): \(error)")

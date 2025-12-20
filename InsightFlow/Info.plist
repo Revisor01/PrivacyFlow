@@ -4,34 +4,28 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>de.godsapp.UmamiInsights.refresh</string>
+		<string>de.godsapp.InsightFlow.refresh</string>
 	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>fetch</string>
-		<string>processing</string>
-	</array>
-	<key>CFBundleDisplayName</key>
-	<string>Insights Flow</string>
-	<key>CFBundleName</key>
-	<string>Insights Flow</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
 		<string>de</string>
 	</array>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>de.godsapp.UmamiInsights</string>
+			<string>de.godsapp.InsightFlow</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>insightsflow</string>
+				<string>insightflow</string>
 			</array>
 		</dict>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
 	</array>
 </dict>
 </plist>

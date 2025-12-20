@@ -18,9 +18,9 @@ class SupportManager: ObservableObject {
 
     // Product IDs - diese müssen in App Store Connect erstellt werden
     private let productIds = [
-        "de.godsapp.umamiinsight.support.small",   // 0,99€
-        "de.godsapp.umamiinsight.support.medium",  // 2,99€
-        "de.godsapp.umamiinsight.support.large"    // 5,99€
+        "de.godsapp.insightflow.support.small",   // 0,99€
+        "de.godsapp.insightflow.support.medium",  // 2,99€
+        "de.godsapp.insightflow.support.large"    // 5,99€
     ]
 
     private init() {}
@@ -89,20 +89,20 @@ class SupportManager: ObservableObject {
 extension Product {
     var emoji: String {
         switch id {
-        case "de.godsapp.umamiinsight.support.small": return "☕️"
-        case "de.godsapp.umamiinsight.support.medium": return "🍕"
-        case "de.godsapp.umamiinsight.support.large": return "🎉"
+        case "de.godsapp.insightflow.support.small": return "☕️"
+        case "de.godsapp.insightflow.support.medium": return "🍕"
+        case "de.godsapp.insightflow.support.large": return "🎉"
         default: return "💝"
         }
     }
 
     var supportName: String {
         switch id {
-        case "de.godsapp.umamiinsight.support.small":
+        case "de.godsapp.insightflow.support.small":
             return String(localized: "support.small")
-        case "de.godsapp.umamiinsight.support.medium":
+        case "de.godsapp.insightflow.support.medium":
             return String(localized: "support.medium")
-        case "de.godsapp.umamiinsight.support.large":
+        case "de.godsapp.insightflow.support.large":
             return String(localized: "support.large")
         default:
             return displayName

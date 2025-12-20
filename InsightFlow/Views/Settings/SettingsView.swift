@@ -354,7 +354,7 @@ struct SettingsView: View {
             Text("settings.about")
         } footer: {
             VStack(alignment: .leading, spacing: 6) {
-                Text("Insights Flow v1.0.0")
+                Text("InsightFlow v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
                     .fontWeight(.medium)
                 Text("© 2025 Simon Luthe")
                 Text("Mit ❤️ in Hennstedt")

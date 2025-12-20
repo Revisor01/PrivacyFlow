@@ -1,109 +1,72 @@
 <p align="center">
-  <img src="app-icon.png" alt="InsightFlow Logo" width="128" height="128">
+  <img src="app-icon.png" alt="InsightFlow" width="128" height="128">
 </p>
 
 <h1 align="center">InsightFlow</h1>
 
 <p align="center">
-  <strong>Privacy-friendly analytics for iOS</strong><br>
-  A native iOS client for Umami and Plausible Analytics
+  Native iOS-App für <a href="https://umami.is">Umami</a> und <a href="https://plausible.io">Plausible</a> Analytics.
 </p>
-
-<p align="center">
-  <a href="https://apps.apple.com/app/insightflow">
-    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="40">
-  </a>
-</p>
-
----
 
 ## Features
 
-### 📊 Dashboard
-- Real-time visitor statistics
-- Pageviews, visitors, visits, bounce rate, and session duration
-- Customizable sparkline charts (line or bar)
-- Multi-account support with easy switching
+- **Multi-Account-Unterstützung**: Verwalte mehrere Analytics-Konten in einer App
+- **Echtzeit-Dashboard**: Besucher, Seitenaufrufe, Absprungrate und Sitzungsdauer
+- **Detaillierte Analysen**: Top-Seiten, Referrer, Geografie, Geräte und Browser
+- **Periodenvergleich**: Woche, Monat oder Jahr vergleichen
+- **Home-Screen-Widgets**: Schneller Blick auf die wichtigsten Statistiken
+- **Push-Benachrichtigungen**: Tägliche oder wöchentliche Zusammenfassungen
+- **Offline-Modus**: Gecachte Daten auch ohne Netzwerk verfügbar
+- **Dark Mode**: Vollständige Unterstützung für den Dunkelmodus
+- **Lokalisierung**: Deutsch und Englisch
 
-### 📈 Detailed Analytics
-- Top pages and page titles
-- Referrer sources
-- Geographic data (countries, regions, cities)
-- Device, browser, and OS breakdown
-- Custom events tracking
+## Unterstützte Anbieter
 
-### 🔄 Real-time Monitoring
-- Live visitor count
-- Active pages being viewed
-- Recent activity feed
-- Visitor journeys (Umami)
+| Anbieter | API | Funktionen |
+|----------|-----|------------|
+| **Umami** | REST API | Alle Funktionen inkl. Sessions, Journeys, Share-Links |
+| **Plausible** | Stats API v2 | Dashboard, Diagramme, Metriken (keine Einzelsitzungen) |
 
-### 📅 Compare Periods
-- Week over week comparison
-- Month over month comparison
-- Year over year comparison
-- Visual trend charts
-
-### 🔔 Notifications
-- Daily or weekly statistics summaries
-- Customizable notification time
-- Per-website notification settings
-
-### 🏠 Widgets
-- Home screen widgets for quick stats
-- Multiple widget sizes
-- Account and website selection
-
-### 🔐 Privacy & Security
-- AES-256 encrypted credential storage
-- No tracking or analytics in the app itself
-- Your data stays on your servers
-
-## Supported Providers
-
-| Provider | API | Features |
-|----------|-----|----------|
-| **Umami** | Full REST API | All features including sessions, journeys, share links |
-| **Plausible** | Stats API v2 | Dashboard, charts, metrics (no individual sessions) |
-
-## Requirements
+## Voraussetzungen
 
 - iOS 18.0+
-- Your own Umami or Plausible Analytics instance (self-hosted or cloud)
+- Eigene Umami- oder Plausible-Instanz (Self-Hosted oder Cloud)
 
 ## Installation
 
 ### App Store
-Download InsightFlow from the [App Store](https://apps.apple.com/app/insightflow).
 
-### Build from Source
-1. Clone this repository
-2. Open `InsightFlow.xcodeproj` in Xcode
-3. Build and run on your device or simulator
+Demnächst verfügbar.
+
+### Selbst kompilieren
+
+1. Repository klonen
+2. `InsightFlow.xcodeproj` in Xcode öffnen
+3. Auf dem Gerät bauen und ausführen
+
+## Konfiguration
+
+1. App starten
+2. Analytics-Konto mit URL und API-Zugangsdaten hinzufügen
+3. Websites auswählen und Statistiken anzeigen
 
 ## Screenshots
 
-*Coming soon*
+*Screenshots folgen*
 
-## Support Development
+## Mitwirken
 
-InsightFlow is free and open source. If you find it useful, consider supporting development through the in-app support options.
+Beiträge sind willkommen! Pull Requests können gerne eingereicht werden.
 
-## License
+## Lizenz
 
-This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
+Dieses Projekt steht unter der GNU General Public License v3.0 - siehe [LICENSE](LICENSE) für Details.
 
-## Credits
+## Danksagung
 
-- [Umami Analytics](https://umami.is) - Open source, privacy-focused web analytics (MIT License)
-- [Plausible Analytics](https://plausible.io) - Simple, privacy-friendly analytics (AGPL-3.0)
+- [Umami Analytics](https://umami.is) - Open-Source, datenschutzfreundliche Web-Analytik
+- [Plausible Analytics](https://plausible.io) - Einfache, datenschutzfreundliche Analytik
 
-## Author
+## Hinweis
 
-Made with ❤️ by Simon Luthe in Hennstedt, Germany.
-
----
-
-<p align="center">
-  <sub>InsightFlow is not affiliated with Umami Software, Inc. or Plausible Insights OÜ.</sub>
-</p>
+Dies ist eine inoffizielle Companion-App. InsightFlow ist nicht mit Umami Software, Inc. oder Plausible Insights OU verbunden oder von diesen unterstützt.

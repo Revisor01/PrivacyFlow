@@ -70,3 +70,56 @@ Dieses Projekt steht unter der GNU General Public License v3.0 - siehe [LICENSE]
 ## Hinweis
 
 Dies ist eine inoffizielle Companion-App. InsightFlow ist nicht mit Umami Software, Inc. oder Plausible Insights OU verbunden oder von diesen unterstützt.
+
+## Datenschutzerklarung
+
+**Verantwortlicher**
+
+Simon Luthe
+Suderstrasse 18
+25779 Hennstedt
+Deutschland
+
+E-Mail: mail@simonluthe.de
+Telefon: +49 151 21563194
+Web: simonluthe.de
+
+**Datenverarbeitung**
+
+InsightFlow speichert und verarbeitet folgende Daten ausschliesslich lokal auf deinem Gerat:
+
+- URLs deiner Umami- oder Plausible-Instanzen
+- API-Zugangsdaten (Token, Benutzername/Passwort) fur die Authentifizierung
+- App-Einstellungen und Praferenzen
+- Gecachte Analytics-Daten fur den Offline-Modus
+
+Es werden keine Daten an externe Server ubertragen. Die gesamte Kommunikation erfolgt ausschliesslich zwischen deinem iOS-Gerat und deinen konfigurierten Analytics-Instanzen.
+
+**Keine Tracking- oder Analysedienste**
+
+InsightFlow verwendet:
+
+- Keine Analytics oder Tracking-Tools
+- Keine Werbung
+- Keine Cloud-Dienste
+- Keine Drittanbieter-SDKs, die Daten sammeln
+
+**Netzwerkverbindungen**
+
+Die App stellt ausschliesslich Verbindungen zu den von dir konfigurierten Analytics-Instanzen (Umami oder Plausible) her.
+
+**Datenspeicherung**
+
+Alle Daten werden lokal in der iOS-Keychain (fur Zugangsdaten) bzw. in den App-Einstellungen gespeichert. Bei Deinstallation der App werden alle Daten vollstandig entfernt.
+
+**Deine Rechte (DSGVO)**
+
+Da alle Daten ausschliesslich lokal auf deinem Gerat gespeichert werden und keine Ubertragung an den Entwickler oder Dritte erfolgt, hast du die volle Kontrolle uber deine Daten. Du kannst diese jederzeit durch Loschen der App vollstandig entfernen.
+
+Bei Fragen zum Datenschutz kannst du dich jederzeit an die oben genannte Kontaktadresse wenden.
+
+**Anderungen**
+
+Diese Datenschutzerklarung kann bei Bedarf aktualisiert werden. Die aktuelle Version ist stets in diesem Repository verfugbar.
+
+Stand: Dezember 2025

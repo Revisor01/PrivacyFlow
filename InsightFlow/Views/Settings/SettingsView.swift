@@ -354,17 +354,7 @@ struct SettingsView: View {
             Text("settings.about")
         } footer: {
             VStack(alignment: .leading, spacing: 6) {
-                Text("InsightFlow v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
-                    .fontWeight(.medium)
-                Text("© 2025 Simon Luthe")
-                Text("Mit ❤️ in Hennstedt")
-                    .padding(.top, 2)
-
-                Divider()
-                    .padding(.vertical, 4)
-
                 Text("settings.about.license")
-                    .padding(.top, 2)
 
                 Text("Plausible Analytics is open source under AGPL-3.0 license.")
             }
@@ -385,6 +375,19 @@ struct SettingsView: View {
                     Spacer()
                 }
             }
+        } footer: {
+            VStack(spacing: 4) {
+                Text("InsightFlow v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
+                HStack(spacing: 4) {
+                    Text("Made with")
+                    Image(systemName: "heart.fill")
+                    Text("in Hennstedt")
+                }
+            }
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .frame(maxWidth: .infinity)
+            .padding(.top, 16)
         }
     }
 }

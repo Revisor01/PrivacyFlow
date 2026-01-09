@@ -5,7 +5,15 @@
 <h1 align="center">PrivacyFlow</h1>
 
 <p align="center">
-  Native iOS-App für <a href="https://umami.is">Umami</a> und <a href="https://plausible.io">Plausible</a> Analytics.
+  Native iOS-App fur <a href="https://umami.is">Umami</a> und <a href="https://plausible.io">Plausible</a> Analytics.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-iOS%2018%2B-blue?style=flat-square" alt="Platform">
+  <img src="https://img.shields.io/badge/Swift-6.0-orange?style=flat-square&logo=swift" alt="Swift">
+  <img src="https://img.shields.io/badge/Xcode-16%2B-blue?style=flat-square&logo=xcode" alt="Xcode">
+  <img src="https://img.shields.io/github/license/Revisor01/PrivacyFlow?style=flat-square" alt="License">
+  <img src="https://img.shields.io/github/v/tag/Revisor01/PrivacyFlow?style=flat-square&label=Version" alt="Version">
 </p>
 
 ## Features

@@ -3,7 +3,7 @@ import BackgroundTasks
 import UserNotifications
 
 @main
-struct InsightFlowApp: App {
+struct PrivacyFlowApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var authManager = AuthManager()
     @StateObject private var notificationManager = NotificationManager()
@@ -26,8 +26,8 @@ struct InsightFlowApp: App {
     }
 
     private func handleDeepLink(_ url: URL) {
-        // Format: insightflow://website?id=xxx&provider=umami
-        guard url.scheme == "insightflow",
+        // Format: privacyflow://website?id=xxx&provider=umami
+        guard url.scheme == "privacyflow",
               url.host == "website",
               let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let queryItems = components.queryItems else {
@@ -59,7 +59,7 @@ struct InsightFlowApp: App {
 
     private func registerBackgroundTasks() {
         BGTaskScheduler.shared.register(
-            forTaskWithIdentifier: "de.godsapp.InsightFlow.refresh",
+            forTaskWithIdentifier: "de.godsapp.PrivacyFlow.refresh",
             using: nil
         ) { task in
             Self.handleAppRefresh(task: task as! BGAppRefreshTask)
@@ -85,7 +85,7 @@ struct InsightFlowApp: App {
     }
 
     private static func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "de.godsapp.InsightFlow.refresh")
+        let request = BGAppRefreshTaskRequest(identifier: "de.godsapp.PrivacyFlow.refresh")
 
         // Lade konfigurierte Zeit oder Standard 9:00 Uhr
         let savedTime = UserDefaults.standard.object(forKey: "notificationTime") as? Date

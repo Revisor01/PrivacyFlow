@@ -1,6 +1,6 @@
 //
-//  InsightFlowWidgetBundle.swift
-//  InsightFlowWidget
+//  PrivacyFlowWidgetBundle.swift
+//  PrivacyFlowWidget
 //
 //  Created by Simon Luthe on 10.12.25.
 //
@@ -9,9 +9,9 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct InsightFlowWidgetBundle: WidgetBundle {
+struct PrivacyFlowWidgetBundle: WidgetBundle {
     var body: some Widget {
-        InsightFlowWidget()
-        InsightFlowWidgetLiveActivity()
+        PrivacyFlowWidget()
+        PrivacyFlowWidgetLiveActivity()
     }
 }

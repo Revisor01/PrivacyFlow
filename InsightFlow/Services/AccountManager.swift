@@ -257,7 +257,7 @@ class AccountManager: ObservableObject {
 
     /// Syncs all accounts to widget storage
     private func syncAccountsToWidget() {
-        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.de.godsapp.InsightFlow") else {
+        guard let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.de.godsapp.PrivacyFlow") else {
             return
         }
 

@@ -1,6 +1,6 @@
 //
-//  InsightFlowWidgetLiveActivity.swift
-//  InsightFlowWidget
+//  PrivacyFlowWidgetLiveActivity.swift
+//  PrivacyFlowWidget
 //
 //  Created by Simon Luthe on 10.12.25.
 //
@@ -9,7 +9,7 @@ import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct InsightFlowWidgetAttributes: ActivityAttributes {
+struct PrivacyFlowWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
         var emoji: String
@@ -19,9 +19,9 @@ struct InsightFlowWidgetAttributes: ActivityAttributes {
     var name: String
 }
 
-struct InsightFlowWidgetLiveActivity: Widget {
+struct PrivacyFlowWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: InsightFlowWidgetAttributes.self) { context in
+        ActivityConfiguration(for: PrivacyFlowWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
                 Text("Hello \(context.state.emoji)")
@@ -56,25 +56,25 @@ struct InsightFlowWidgetLiveActivity: Widget {
     }
 }
 
-extension InsightFlowWidgetAttributes {
-    fileprivate static var preview: InsightFlowWidgetAttributes {
-        InsightFlowWidgetAttributes(name: "World")
+extension PrivacyFlowWidgetAttributes {
+    fileprivate static var preview: PrivacyFlowWidgetAttributes {
+        PrivacyFlowWidgetAttributes(name: "World")
     }
 }
 
-extension InsightFlowWidgetAttributes.ContentState {
-    fileprivate static var smiley: InsightFlowWidgetAttributes.ContentState {
-        InsightFlowWidgetAttributes.ContentState(emoji: "😀")
+extension PrivacyFlowWidgetAttributes.ContentState {
+    fileprivate static var smiley: PrivacyFlowWidgetAttributes.ContentState {
+        PrivacyFlowWidgetAttributes.ContentState(emoji: "😀")
      }
      
-     fileprivate static var starEyes: InsightFlowWidgetAttributes.ContentState {
-         InsightFlowWidgetAttributes.ContentState(emoji: "🤩")
+     fileprivate static var starEyes: PrivacyFlowWidgetAttributes.ContentState {
+         PrivacyFlowWidgetAttributes.ContentState(emoji: "🤩")
      }
 }
 
-#Preview("Notification", as: .content, using: InsightFlowWidgetAttributes.preview) {
-   InsightFlowWidgetLiveActivity()
+#Preview("Notification", as: .content, using: PrivacyFlowWidgetAttributes.preview) {
+   PrivacyFlowWidgetLiveActivity()
 } contentStates: {
-    InsightFlowWidgetAttributes.ContentState.smiley
-    InsightFlowWidgetAttributes.ContentState.starEyes
+    PrivacyFlowWidgetAttributes.ContentState.smiley
+    PrivacyFlowWidgetAttributes.ContentState.starEyes
 }

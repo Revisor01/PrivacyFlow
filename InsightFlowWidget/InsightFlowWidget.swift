@@ -1,6 +1,6 @@
 //
-//  InsightFlowWidget.swift
-//  InsightFlowWidget
+//  PrivacyFlowWidget.swift
+//  PrivacyFlowWidget
 //
 
 import WidgetKit
@@ -65,7 +65,7 @@ struct WidgetAccount: Codable, Identifiable, Hashable {
 }
 
 struct WidgetAccountsStorage {
-    private static let appGroupID = "group.de.godsapp.InsightFlow"
+    private static let appGroupID = "group.de.godsapp.PrivacyFlow"
     private static let fileName = "widget_accounts.json"
 
     static func loadAccounts() -> [WidgetAccount] {
@@ -131,7 +131,7 @@ struct WidgetAccountsStorage {
 }
 
 struct WidgetCredentials {
-    private static let appGroupID = "group.de.godsapp.InsightFlow"
+    private static let appGroupID = "group.de.godsapp.PrivacyFlow"
     private static let fileName = "widget_credentials.encrypted"
     private static let legacyFileName = "widget_credentials.json"
     private static let keyFileName = "widget_credentials.key"
@@ -573,7 +573,7 @@ struct FilteredWebsiteOptionsProvider: DynamicOptionsProvider {
 
 /// Einfacher Cache für Widget-Daten, der im App Group Container gespeichert wird
 struct WidgetCache {
-    private static let appGroupID = "group.de.godsapp.InsightFlow"
+    private static let appGroupID = "group.de.godsapp.PrivacyFlow"
     private static let cacheFolder = "analytics_cache"
 
     private static var cacheDirectory: URL? {
@@ -1728,7 +1728,7 @@ struct LineChartView: View {
 
 // MARK: - Widget Views
 
-struct InsightFlowWidgetEntryView: View {
+struct PrivacyFlowWidgetEntryView: View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family
 
@@ -1971,16 +1971,16 @@ struct MediumWidgetView: View {
 
 // MARK: - Widget
 
-struct InsightFlowWidget: Widget {
-    let kind: String = "InsightFlowWidget"
+struct PrivacyFlowWidget: Widget {
+    let kind: String = "PrivacyFlowWidget"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigureWidgetIntent.self, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
-                InsightFlowWidgetEntryView(entry: entry)
+                PrivacyFlowWidgetEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
             } else {
-                InsightFlowWidgetEntryView(entry: entry)
+                PrivacyFlowWidgetEntryView(entry: entry)
                     .padding()
                     .background()
             }
@@ -1992,13 +1992,13 @@ struct InsightFlowWidget: Widget {
 }
 
 #Preview(as: .systemSmall) {
-    InsightFlowWidget()
+    PrivacyFlowWidget()
 } timeline: {
     StatsEntry(date: .now, data: .placeholder, configuration: ConfigureWidgetIntent())
 }
 
 #Preview(as: .systemMedium) {
-    InsightFlowWidget()
+    PrivacyFlowWidget()
 } timeline: {
     StatsEntry(date: .now, data: .placeholder, configuration: ConfigureWidgetIntent())
 }

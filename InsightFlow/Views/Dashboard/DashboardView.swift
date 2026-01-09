@@ -12,6 +12,7 @@ struct DashboardView: View {
     @State private var showingAddSite = false
     @State private var showingAddUmamiSite = false
     @State private var showingAccountSwitcher = false
+    @State private var isReordering = false
 
     var body: some View {
         NavigationStack {
@@ -31,9 +32,12 @@ struct DashboardView: View {
 
                     if viewModel.websites.isEmpty && !viewModel.isLoading {
                         emptyStateView
+                    } else if isReordering {
+                        // Reorder Mode mit List für Drag & Drop
+                        reorderingView
                     } else {
                         LazyVStack(spacing: 16) {
-                            ForEach(viewModel.websites) { website in
+                            ForEach(viewModel.sortedWebsites) { website in
                                 WebsiteCard(
                                     website: website,
                                     stats: viewModel.stats[website.id],
@@ -53,6 +57,11 @@ struct DashboardView: View {
                                 .onTapGesture {
                                     selectedWebsite = website
                                 }
+                                .onLongPressGesture {
+                                    withAnimation(.spring(duration: 0.3)) {
+                                        isReordering = true
+                                    }
+                                }
                             }
                         }
                     }
@@ -62,33 +71,46 @@ struct DashboardView: View {
             .background(Color(.systemGroupedBackground).ignoresSafeArea())
             .navigationTitle("dashboard.title")
             .toolbar {
-                // Chart Style Toggle (nur wenn Graph sichtbar)
-                if settingsManager.showGraph {
+                if isReordering {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             withAnimation(.spring(duration: 0.3)) {
-                                settingsManager.toggleChartStyle()
+                                isReordering = false
                             }
                         } label: {
-                            Image(systemName: settingsManager.chartStyle.icon)
+                            Text("button.done")
+                                .fontWeight(.semibold)
                         }
-                        .accessibilityLabel(String(localized: "accessibility.chartStyle.toggle"))
-                        .accessibilityHint(String(localized: "accessibility.chartStyle.hint"))
                     }
-                }
+                } else {
+                    // Chart Style Toggle (nur wenn Graph sichtbar)
+                    if settingsManager.showGraph {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                withAnimation(.spring(duration: 0.3)) {
+                                    settingsManager.toggleChartStyle()
+                                }
+                            } label: {
+                                Image(systemName: settingsManager.chartStyle.icon)
+                            }
+                            .accessibilityLabel(String(localized: "accessibility.chartStyle.toggle"))
+                            .accessibilityHint(String(localized: "accessibility.chartStyle.hint"))
+                        }
+                    }
 
-                // Website hinzufügen für beide Provider
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        if currentProviderIsPlausible {
-                            showingAddSite = true
-                        } else {
-                            showingAddUmamiSite = true
+                    // Website hinzufügen für beide Provider
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            if currentProviderIsPlausible {
+                                showingAddSite = true
+                            } else {
+                                showingAddUmamiSite = true
+                            }
+                        } label: {
+                            Image(systemName: "plus")
                         }
-                    } label: {
-                        Image(systemName: "plus")
+                        .accessibilityLabel(String(localized: "accessibility.addWebsite"))
                     }
-                    .accessibilityLabel(String(localized: "accessibility.addWebsite"))
                 }
             }
             .refreshable {
@@ -240,6 +262,41 @@ struct DashboardView: View {
                     .frame(width: 20)
             }
         )
+    }
+
+    private var reorderingView: some View {
+        VStack(spacing: 0) {
+            Text("dashboard.reorder.hint")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .padding(.bottom, 12)
+
+            List {
+                ForEach(viewModel.sortedWebsites) { website in
+                    HStack(spacing: 12) {
+                        Image(systemName: "line.3.horizontal")
+                            .foregroundStyle(.secondary)
+
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(website.name)
+                                .font(.body)
+                                .fontWeight(.medium)
+                            Text(website.displayDomain)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        Spacer()
+                    }
+                    .padding(.vertical, 4)
+                }
+                .onMove { from, to in
+                    viewModel.moveWebsite(from: from, to: to)
+                }
+            }
+            .listStyle(.plain)
+            .environment(\.editMode, .constant(.active))
+        }
     }
 
     private var accountSwitcherButton: some View {
@@ -643,11 +700,53 @@ class DashboardViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var error: String?
     @Published var isOffline = false
+    @Published var websiteOrder: [String] = [] {
+        didSet {
+            saveWebsiteOrder()
+        }
+    }
 
     private let umamiAPI = UmamiAPI.shared
     private let plausibleAPI = PlausibleAPI.shared
     private let cache = AnalyticsCacheService.shared
     private var currentDateRange: DateRange = .today
+
+    /// Sortierte Websites basierend auf gespeicherter Reihenfolge
+    var sortedWebsites: [Website] {
+        if websiteOrder.isEmpty {
+            return websites
+        }
+
+        return websites.sorted { a, b in
+            let indexA = websiteOrder.firstIndex(of: a.id) ?? Int.max
+            let indexB = websiteOrder.firstIndex(of: b.id) ?? Int.max
+            return indexA < indexB
+        }
+    }
+
+    init() {
+        loadWebsiteOrder()
+    }
+
+    private var orderKey: String {
+        "websiteOrder_\(currentAccountId)"
+    }
+
+    private func loadWebsiteOrder() {
+        if let order = UserDefaults.standard.stringArray(forKey: orderKey) {
+            websiteOrder = order
+        }
+    }
+
+    private func saveWebsiteOrder() {
+        UserDefaults.standard.set(websiteOrder, forKey: orderKey)
+    }
+
+    func moveWebsite(from source: IndexSet, to destination: Int) {
+        var order = sortedWebsites.map { $0.id }
+        order.move(fromOffsets: source, toOffset: destination)
+        websiteOrder = order
+    }
 
     private var isPlausible: Bool {
         AnalyticsManager.shared.providerType == .plausible
@@ -661,6 +760,9 @@ class DashboardViewModel: ObservableObject {
         isLoading = true
         currentDateRange = dateRange
         isOffline = false
+
+        // Lade die Website-Reihenfolge für den aktuellen Account
+        loadWebsiteOrder()
 
         // 1. Lade zuerst aus dem Cache für sofortige Anzeige
         loadFromCache(dateRange: dateRange)

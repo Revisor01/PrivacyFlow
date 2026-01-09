@@ -4,7 +4,7 @@
 */
 
 // MARK: - General
-"app.name" = "InsightFlow";
+"app.name" = "PrivacyFlow";
 "button.cancel" = "Abbrechen";
 "button.done" = "Fertig";
 "button.save" = "Speichern";
@@ -43,6 +43,7 @@
 "dashboard.empty.plausible" = "Füge deine erste Website hinzu, um Statistiken zu sehen.";
 "dashboard.empty.umami" = "Du hast noch keine Websites in deinem Umami-Account.";
 "dashboard.offline" = "Offline – zeige gecachte Daten";
+"dashboard.reorder.hint" = "Halte und ziehe um die Reihenfolge zu ändern";
 
 // MARK: - Add Site
 "addSite.title" = "Website hinzufügen";
@@ -220,7 +221,7 @@
 
 // MARK: - Support
 "settings.support.title" = "Entwicklung unterstützen";
-"settings.support.subtitle" = "Hilf uns, InsightFlow zu verbessern";
+"settings.support.subtitle" = "Hilf uns, PrivacyFlow zu verbessern";
 
 "settings.logout" = "Abmelden";
 "settings.logout.confirm" = "Möchtest du dich wirklich abmelden?";
@@ -237,7 +238,7 @@
 
 // MARK: - Support / Donation
 "support.title" = "Unterstützen";
-"support.header" = "Unterstütze InsightFlow";
+"support.header" = "Unterstütze PrivacyFlow";
 "support.message" = "Software sollte frei sein.\n\nWenn du es dir gerade leisten kannst, freue ich mich über deine Unterstützung. Ansonsten nutze die App einfach gerne – das ist völlig in Ordnung.";
 "support.small" = "Kleine Geste";
 "support.medium" = "Nette Geste";
@@ -252,7 +253,7 @@
 "support.error.pending" = "Kauf wird bearbeitet";
 
 // MARK: - Support Reminder
-"support.reminder.title" = "Dir gefällt InsightFlow?";
+"support.reminder.title" = "Dir gefällt PrivacyFlow?";
 "support.reminder.message" = "Diese App ist kostenlos und werbefrei. Sie wurde mit viel Liebe entwickelt.\n\nSoftware sollte frei sein. Wenn du es dir leisten kannst, unterstütze die Entwicklung gerne. Ansonsten nutze die App einfach weiter – das ist völlig okay!";
 "support.reminder.support" = "Gerne unterstützen";
 "support.reminder.already" = "Hab ich schon";
@@ -337,7 +338,7 @@
 "insights.lastMonth" = "Letzter Monat";
 
 // MARK: - Onboarding
-"onboarding.welcome.title" = "Willkommen bei InsightFlow";
+"onboarding.welcome.title" = "Willkommen bei PrivacyFlow";
 "onboarding.welcome.subtitle" = "Deine Website-Statistiken immer dabei – datenschutzfreundlich und übersichtlich.";
 "onboarding.welcome.umami" = "Open Source, selbst gehostet";
 "onboarding.welcome.plausible" = "Einfach und datenschutzfreundlich";

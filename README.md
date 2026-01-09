@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="app-icon.png" alt="InsightFlow" width="128" height="128">
+  <img src="app-icon.png" alt="PrivacyFlow" width="128" height="128">
 </p>
 
-<h1 align="center">InsightFlow</h1>
+<h1 align="center">PrivacyFlow</h1>
 
 <p align="center">
   Native iOS-App für <a href="https://umami.is">Umami</a> und <a href="https://plausible.io">Plausible</a> Analytics.
@@ -41,7 +41,7 @@ Demnächst verfügbar.
 ### Selbst kompilieren
 
 1. Repository klonen
-2. `InsightFlow.xcodeproj` in Xcode öffnen
+2. `PrivacyFlow.xcodeproj` in Xcode öffnen
 3. Auf dem Gerät bauen und ausführen
 
 ## Konfiguration
@@ -69,7 +69,7 @@ Dieses Projekt steht unter der GNU General Public License v3.0 - siehe [LICENSE]
 
 ## Hinweis
 
-Dies ist eine inoffizielle Companion-App. InsightFlow ist nicht mit Umami Software, Inc. oder Plausible Insights OU verbunden oder von diesen unterstützt.
+Dies ist eine inoffizielle Companion-App. PrivacyFlow ist nicht mit Umami Software, Inc. oder Plausible Insights OU verbunden oder von diesen unterstützt.
 
 ## Datenschutzerklarung
 
@@ -86,7 +86,7 @@ Web: simonluthe.de
 
 **Datenverarbeitung**
 
-InsightFlow speichert und verarbeitet folgende Daten ausschliesslich lokal auf deinem Gerat:
+PrivacyFlow speichert und verarbeitet folgende Daten ausschliesslich lokal auf deinem Gerat:
 
 - URLs deiner Umami- oder Plausible-Instanzen
 - API-Zugangsdaten (Token, Benutzername/Passwort) fur die Authentifizierung
@@ -97,7 +97,7 @@ Es werden keine Daten an externe Server ubertragen. Die gesamte Kommunikation er
 
 **Keine Tracking- oder Analysedienste**
 
-InsightFlow verwendet:
+PrivacyFlow verwendet:
 
 - Keine Analytics oder Tracking-Tools
 - Keine Werbung

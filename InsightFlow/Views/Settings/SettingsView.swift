@@ -377,7 +377,7 @@ struct SettingsView: View {
             }
         } footer: {
             VStack(spacing: 4) {
-                Text("InsightFlow v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
+                Text("PrivacyFlow v\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0")")
                 HStack(spacing: 4) {
                     Text("Made with")
                     Image(systemName: "heart.fill")

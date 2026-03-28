@@ -26,7 +26,10 @@
   2. Navigiert der User weg, werden laufende API-Requests abgebrochen (kein Background-Battery-Drain)
   3. Cache wird beim App-Start bereinigt (Einträge >7 Tage gelöscht, Gesamtgröße <100MB)
   4. Account-Wechsel zeigt Loading-Indikator statt Flash alter Daten
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+- [ ] 13-01-PLAN.md — Cache Lifecycle (FIX-03) + Account-Wechsel Loading State (FIX-04)
+- [ ] 13-02-PLAN.md — Widget Sync Race Condition (FIX-01) + Request Cancellation (FIX-02)
 
 ### Phase 14: Code Cleanup
 **Goal**: Toten Code entfernen und Offline-Erlebnis verbessern
@@ -50,6 +53,6 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 13. Critical Bug Fixes | 0/? | Not started | - |
+| 13. Critical Bug Fixes | 0/2 | Not started | - |
 | 14. Code Cleanup | 0/? | Not started | - |
 | 15. README & Repo | 0/? | Not started | - |

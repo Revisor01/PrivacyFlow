@@ -8,19 +8,18 @@ InsightFlow ist eine iOS-App (SwiftUI), die als Dashboard für Umami und Plausib
 
 Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone aus überwachen — über mehrere Accounts und Analytics-Anbieter hinweg.
 
-## Current Milestone: v2.0 Code Quality & Security Hardening
+## Current State
 
-**Goal:** Alle identifizierten Concerns (Sicherheit, Architektur, Stabilität, Code-Qualität, Tests) systematisch beheben.
+**Latest shipped:** v2.0 Code Quality & Security Hardening (completed 2026-03-28)
+**Next milestone:** Not yet defined — run `/gsd:new-milestone` to start
 
-**Target features:**
-- Credentials aus UserDefaults in Keychain migrieren + Widget-Tokens verschlüsseln
-- Auth-System konsolidieren (AuthManager/AccountManager/AnalyticsManager → einer)
-- AnalyticsProvider-Protokoll tatsächlich nutzen statt if-isPlausible-Branching
-- Force Unwraps durch sichere Unwrapping ersetzen
-- Widget-Datei (2004 Zeilen) aufteilen
-- Timing-Hacks durch Combine/async-await Koordination ersetzen
-- Print-Statements aufräumen
-- Unit Tests für kritische Pfade ergänzen
+### v2.0 Accomplishments
+- Credentials sicher in Keychain gespeichert (per Account-ID), Widget-Tokens AES-GCM-verschlüsselt
+- AuthManager entfernt, AccountManager als einzige Auth-Quelle konsolidiert
+- AnalyticsProvider-Protokoll im ViewModel (0 isPlausible-Branches)
+- PlausibleAPI + UmamiAPI beide als actor (einheitliches Concurrency-Modell)
+- Widget-Monolith von 2034 auf 41 Zeilen reduziert (9 separate Dateien)
+- 58 Unit Tests für KeychainService, AccountManager, API-Parsing, DateRange, Cache
 
 ## Requirements
 
@@ -37,21 +36,19 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 - ✓ Lokalisierung (Deutsch/Englisch) — v1.0
 - ✓ Dashboard-Anpassungsmodus (Reihenfolge, Metriken, Chart-Stil) — v1.2
 - ✓ Optionale Datumsauswahl und Graph-Auto-Hide — v1.3
+- ✓ Credentials sicher in Keychain (per Account-ID) — v2.0
+- ✓ Widget-Tokens AES-GCM-verschlüsselt — v2.0
+- ✓ Auth-System konsolidiert (AccountManager als Single Source) — v2.0
+- ✓ AnalyticsProvider-Protokoll im ViewModel — v2.0
+- ✓ Widget-Code aufgeteilt (9 Dateien) — v2.0
+- ✓ Force Unwraps + Timing-Hacks eliminiert — v2.0
+- ✓ 58 Unit Tests für kritische Pfade — v2.0
 
 ### Active
 
 <!-- Current scope. Building toward these. -->
 
-- [x] Credentials sicher in Keychain statt UserDefaults speichern — Validated in Phase 1: Security Hardening
-- [x] Widget-Account-Tokens verschlüsseln (AES-GCM) — Validated in Phase 1: Security Hardening
-- [x] Token-Logging aus Widget entfernen — Validated in Phase 1: Security Hardening
-- [x] Auth-System auf einen Manager konsolidieren — Validated in Phase 4: Architektur
-- [x] AnalyticsProvider-Protokoll in ViewModel nutzen — Validated in Phase 4: Architektur
-- [x] Force Unwraps durch safe unwrapping ersetzen — Validated in Phase 3: Stabilität
-- [x] Widget-Code in mehrere Dateien aufteilen — Validated in Phase 2: Quick Wins & Widget Split
-- [x] Timing-Hacks durch async/await Koordination ersetzen — Validated in Phase 3: Stabilität
-- [x] Print-Statements aufräumen (#if DEBUG) — Validated in Phase 2: Quick Wins & Widget Split
-- [x] Unit Tests für kritische Pfade ergänzen — Validated in Phase 5: Tests (58 Tests grün)
+*No active requirements — start next milestone with `/gsd:new-milestone`*
 
 ### Out of Scope
 
@@ -105,4 +102,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-28 after Phase 5 (Tests) completion — v2.0 milestone complete*
+*Last updated: 2026-03-28 — v2.0 milestone archived*

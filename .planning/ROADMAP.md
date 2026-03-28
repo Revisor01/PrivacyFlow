@@ -42,7 +42,12 @@ Plans:
   2. Die Datei `InsightFlowWidget/InsightFlowWidget.swift` ist auf unter 400 Zeilen reduziert; Widget-Models, Networking, Cache, Views und Intents liegen in separaten Dateien
   3. `WebsiteDetailView.swift`, `AdminView.swift` und `CompareView.swift` sind jeweils unter 600 Zeilen durch Extraktion von Subviews
   4. Das Widget verhält sich nach dem Split funktional identisch (alle Widget-Größen zeigen Daten korrekt)
-**Plans**: TBD
+**Plans:** 4 plans
+Plans:
+- [ ] 02-01-PLAN.md — Widget-Monolith in 9 Dateien aufteilen (STRUC-01, STAB-03)
+- [ ] 02-02-PLAN.md — Print-Statement-Cleanup in 14 Main-App-Dateien (STAB-03)
+- [ ] 02-03-PLAN.md — View-Extraktion WebsiteDetailView, AdminView, CompareView (STRUC-02, STAB-03)
+- [ ] 02-04-PLAN.md — Automatisierte und visuelle Verifikation (STAB-03, STRUC-01, STRUC-02)
 **UI hint**: yes
 
 ### Phase 3: Stabilität
@@ -86,7 +91,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Security Hardening | 2/2 | Complete   | 2026-03-28 |
-| 2. Quick Wins & Widget Split | 0/? | Not started | - |
+| 2. Quick Wins & Widget Split | 0/4 | Planned | - |
 | 3. Stabilität | 0/? | Not started | - |
 | 4. Architektur | 0/? | Not started | - |
 | 5. Tests | 0/? | Not started | - |

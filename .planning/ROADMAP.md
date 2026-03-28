@@ -66,7 +66,9 @@ Plans:
   1. Zu den wichtigsten Metriken (Bounce Rate, Session Duration, Referrer, UTM-Parameter, Funnels) gibt es in der App erreichbare Erklärungen
   2. Ein Nutzer ohne Analytics-Vorwissen kann anhand der Erklärungen verstehen, was ein Funnel ist und warum eine hohe Bounce Rate problematisch sein kann
   3. Die Erklärungen sind von den jeweiligen Screens aus erreichbar (kontextsensitiv oder zentral)
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 11-01-PLAN.md — AnalyticsGlossaryView mit 12 Begriffen + DE/EN-Lokalisierung + SettingsView-Integration
 **UI hint**: yes
 
 ## Progress
@@ -76,4 +78,4 @@ Plans:
 | 08. Events & Reports Screens | 3/3 | Complete    | 2026-03-28 |
 | 09. Entry/Exit Pages + Plausible Filters | 2/2 | Complete    | 2026-03-28 |
 | 10. Analytics Setup | 1/1 | Complete    | 2026-03-28 |
-| 11. In-App Data Guide | 0/? | Not started | - |
+| 11. In-App Data Guide | 0/1 | Not started | - |

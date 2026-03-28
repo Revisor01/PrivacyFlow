@@ -23,7 +23,7 @@ Neue UI-Screens für die in v2.2 implementierten API-Endpoints, Analytics auf ec
 
 ### In-App Guide
 
-- [ ] **GUIDE-01**: In-App Erklärungen — Nutzer verstehen was Bounce Rate, Referrer, UTM-Parameter, Funnels etc. bedeuten und was sie damit anfangen können
+- [x] **GUIDE-01**: In-App Erklärungen — Nutzer verstehen was Bounce Rate, Referrer, UTM-Parameter, Funnels etc. bedeuten und was sie damit anfangen können
 
 ## Out of Scope
 
@@ -42,7 +42,7 @@ Neue UI-Screens für die in v2.2 implementierten API-Endpoints, Analytics auf ec
 | SCREEN-03 | Phase 09 | Complete |
 | SCREEN-04 | Phase 09 | Complete |
 | SETUP-01 | Phase 10 | Complete |
-| GUIDE-01 | Phase 11 | Pending |
+| GUIDE-01 | Phase 11 | Complete |
 
 **Coverage:**
 - v2.3 requirements: 6 total

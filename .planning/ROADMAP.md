@@ -40,7 +40,10 @@ Plans:
   1. Nutzer kann in der Website-Detailansicht sehen, über welche Seiten Besucher einsteigen und die Website verlassen
   2. Nutzer kann Plausible-Daten nach Dimensionen (UTM, Gerät, Browser, Land) filtern und das Ergebnis live in der bestehenden Ansicht sehen
   3. Plausible Goals werden in der Website-Detailansicht angezeigt mit Conversion-Rate und absoluten Werten
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 09-01-PLAN.md — Entry/Exit Pages Section (Traffic Flow) in der Detailansicht
+- [ ] 09-02-PLAN.md — Plausible Goals Section + Filter-UI mit Dimension-Chips
 **UI hint**: yes
 
 ### Phase 10: Analytics Setup
@@ -69,6 +72,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 08. Events & Reports Screens | 3/3 | Complete    | 2026-03-28 |
-| 09. Entry/Exit Pages + Plausible Filters | 0/? | Not started | - |
+| 09. Entry/Exit Pages + Plausible Filters | 0/2 | Planning complete | - |
 | 10. Analytics Setup | 0/? | Not started | - |
 | 11. In-App Data Guide | 0/? | Not started | - |

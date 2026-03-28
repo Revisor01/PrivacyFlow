@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 09-entry-exit-plausible-filters 09-01-PLAN.md
-last_updated: "2026-03-28T21:08:33.262Z"
+status: verifying
+stopped_at: Completed 09-entry-exit-plausible-filters 09-02-PLAN.md
+last_updated: "2026-03-28T21:15:11.711Z"
 last_activity: 2026-03-28
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 5
-  completed_plans: 4
+  completed_plans: 5
   percent: 0
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 
 Phase: 09 (entry-exit-plausible-filters) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-03-28
 
 Progress: [░░░░░░░░░░] 0%
@@ -53,6 +53,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Phase 08-events-reports-screens]: Each view (EventsView + EventDetailView) owns its own @StateObject EventsViewModel
 - [Phase 08-events-reports-screens]: LazyVGrid statt HStack fuer Umami Quick Actions — skaliert auf 4 Karten ohne Overflow
 - [Phase 09]: Plausible-only Entry/Exit via PlausibleAPI cast — no AnalyticsProvider protocol change needed
+- [Phase 09-entry-exit-plausible-filters]: GoalConversion struct in PlausibleGoal.swift for co-location; filter values reuse existing ViewModel breakdown data
 
 ### Pending Todos
 
@@ -64,6 +65,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-28T21:08:33.260Z
-Stopped at: Completed 09-entry-exit-plausible-filters 09-01-PLAN.md
+Last session: 2026-03-28T21:15:11.708Z
+Stopped at: Completed 09-entry-exit-plausible-filters 09-02-PLAN.md
 Resume file: None

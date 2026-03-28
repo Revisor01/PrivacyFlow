@@ -10,7 +10,7 @@
 ## Phases
 
 - [x] **Phase 08: Events & Reports Screens** - Umami Events- und Reports-Views als neue Screens in der App (completed 2026-03-28)
-- [ ] **Phase 09: Entry/Exit Pages + Plausible Filters** - Herkunfts-/Absprung-Daten und Plausible Goals mit Filter-UI
+- [x] **Phase 09: Entry/Exit Pages + Plausible Filters** - Herkunfts-/Absprung-Daten und Plausible Goals mit Filter-UI (completed 2026-03-28)
 - [ ] **Phase 10: Analytics Setup** - Tracking-Code auf echten Websites aktivieren, Goals definieren, Datenfluss sicherstellen
 - [ ] **Phase 11: In-App Data Guide** - Erklärungen zu Analytics-Begriffen direkt in der App
 
@@ -43,7 +43,7 @@ Plans:
 **Plans**: 2 plans
 Plans:
 - [x] 09-01-PLAN.md — Entry/Exit Pages Section (Traffic Flow) in der Detailansicht
-- [ ] 09-02-PLAN.md — Plausible Goals Section + Filter-UI mit Dimension-Chips
+- [x] 09-02-PLAN.md — Plausible Goals Section + Filter-UI mit Dimension-Chips
 **UI hint**: yes
 
 ### Phase 10: Analytics Setup
@@ -72,6 +72,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 08. Events & Reports Screens | 3/3 | Complete    | 2026-03-28 |
-| 09. Entry/Exit Pages + Plausible Filters | 0/2 | Planning complete | - |
+| 09. Entry/Exit Pages + Plausible Filters | 2/2 | Complete   | 2026-03-28 |
 | 10. Analytics Setup | 0/? | Not started | - |
 | 11. In-App Data Guide | 0/? | Not started | - |

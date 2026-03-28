@@ -18,7 +18,7 @@ Requirements für Code Quality & Security Hardening. Jedes Requirement mappt auf
 
 - [ ] **ARCH-01**: AccountManager ist einziger Auth-State-Manager (AuthManager und AnalyticsManager-Auth entfernt/reduziert)
 - [ ] **ARCH-02**: WebsiteDetailViewModel nutzt AnalyticsProvider-Protokoll statt direkter if-isPlausible-Prüfungen
-- [ ] **ARCH-03**: Beide API-Clients (Umami + Plausible) verwenden einheitliches Concurrency-Modell (actor)
+- [x] **ARCH-03**: Beide API-Clients (Umami + Plausible) verwenden einheitliches Concurrency-Modell (actor)
 
 ### Stabilität
 
@@ -73,7 +73,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | STRUC-02 | Phase 2 | Complete |
 | STAB-01 | Phase 3 | Complete |
 | STAB-02 | Phase 3 | Complete |
-| ARCH-03 | Phase 4 | Pending |
+| ARCH-03 | Phase 4 | Complete |
 | ARCH-02 | Phase 4 | Pending |
 | ARCH-01 | Phase 4 | Pending |
 | TEST-01 | Phase 5 | Pending |

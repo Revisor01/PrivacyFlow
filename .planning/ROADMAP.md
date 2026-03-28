@@ -14,7 +14,7 @@
 - [ ] **Phase 2: Quick Wins & Widget Split** - Print-Statements bereinigen, Widget-Monolith aufteilen, große Views extrahieren
 - [ ] **Phase 3: Stabilität** - Force Unwraps durch safe unwrapping ersetzen, Timing-Hacks durch async/await ablösen
 - [x] **Phase 4: Architektur** - Concurrency vereinheitlichen, AnalyticsProvider-Protokoll im ViewModel nutzen, Auth-System konsolidieren (completed 2026-03-28)
-- [ ] **Phase 5: Tests** - Unit Tests für kritische Pfade ergänzen
+- [x] **Phase 5: Tests** - Unit Tests für kritische Pfade ergänzen (completed 2026-03-28)
 
 ## Phase Details
 
@@ -88,11 +88,11 @@ Plans:
   3. Unit Tests für API-Response-Parsing von `UmamiAPI` und `PlausibleAPI` mit Mock-Daten laufen grün
   4. Unit Tests für `DateRange`-Berechnungen (Presets, Custom, Provider-Formatierung) laufen grün
   5. Unit Tests für `AnalyticsCacheService` (save/load, TTL-Expiry) laufen grün
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 Plans:
 - [x] 05-01-PLAN.md — Test-Target anlegen, CacheService refactorn, KeychainService + DateRange Tests (TEST-01)
 - [x] 05-02-PLAN.md — Umami + Plausible API Response Parsing Tests (TEST-01)
-- [ ] 05-03-PLAN.md — AccountManager + AnalyticsCacheService Tests (TEST-01)
+- [x] 05-03-PLAN.md — AccountManager + AnalyticsCacheService Tests (TEST-01)
 
 ## Progress
 
@@ -105,4 +105,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Quick Wins & Widget Split | 2/4 | In Progress|  |
 | 3. Stabilität | 1/2 | In Progress|  |
 | 4. Architektur | 3/3 | Complete   | 2026-03-28 |
-| 5. Tests | 2/3 | In Progress|  |
+| 5. Tests | 3/3 | Complete   | 2026-03-28 |

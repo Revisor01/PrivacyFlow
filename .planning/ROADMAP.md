@@ -7,4 +7,10 @@
 
 ## Phases
 
-*No active milestone. Run `/gsd:new-milestone` to start the next one.*
+### Phase 08: Events & Reports Screens
+
+| Plan | Name | Status | Summary |
+|------|------|--------|---------|
+| 08-01 | Events Screen | ✅ Complete | [SUMMARY](phases/08-events-reports-screens/08-01-SUMMARY.md) |
+| 08-02 | Reports Hub | Pending | — |
+| 08-03 | Integration in WebsiteDetailView | Pending | — |

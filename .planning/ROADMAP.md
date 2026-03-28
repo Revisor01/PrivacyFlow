@@ -13,7 +13,7 @@
 **Milestone Goal:** App unterstützt vollständige Umami- und Plausible-API-Abdeckung, bietet eine einheitliche Support-Option und verbesserte Push-Benachrichtigungs-Strukturierung.
 
 - [x] **Phase 04: Support & Branding** - Einheitliche Support-Option und Branding über alle Apps (completed 2026-03-28)
-- [ ] **Phase 05: Umami API Coverage** - Vollständige Abdeckung aller Umami Self-Hosted API-Endpunkte
+- [x] **Phase 05: Umami API Coverage** - Vollständige Abdeckung aller Umami Self-Hosted API-Endpunkte (completed 2026-03-28)
 - [ ] **Phase 06: Plausible API Coverage** - Vollständige Abdeckung aller Plausible CE Self-Hosted API-Endpunkte
 - [ ] **Phase 07: Push-Benachrichtigungen** - Strukturierte Gruppierung der Benachrichtigungs-Logik
 
@@ -73,6 +73,6 @@ Plans:
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 04. Support & Branding | v2.2 | 1/1 | Complete    | 2026-03-28 |
-| 05. Umami API Coverage | v2.2 | 2/4 | In progress | - |
+| 05. Umami API Coverage | v2.2 | 2/4 | Complete    | 2026-03-28 |
 | 06. Plausible API Coverage | v2.2 | 0/TBD | Not started | - |
 | 07. Push-Benachrichtigungen | v2.2 | 0/TBD | Not started | - |

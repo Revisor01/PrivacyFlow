@@ -54,7 +54,9 @@ Plans:
   1. Tracking-Code (Umami oder Plausible) ist auf mindestens einer eigenen Website eingebunden und sendet echte Pageviews
   2. Mindestens ein Goal ist definiert und erscheint in der App unter Phase-09-Screens
   3. Die App zeigt echte Daten (nicht Mock/Demo) für die eingerichtete Website
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 10-01-PLAN.md — In-App Setup Guide (SetupGuideView) mit Tracking-Anleitung für Umami + Plausible
 
 ### Phase 11: In-App Data Guide
 **Goal**: Nutzer verstehen, was die angezeigten Analytics-Metriken bedeuten und wie sie sie nutzen können
@@ -73,5 +75,5 @@ Plans:
 |-------|----------------|--------|-----------|
 | 08. Events & Reports Screens | 3/3 | Complete    | 2026-03-28 |
 | 09. Entry/Exit Pages + Plausible Filters | 2/2 | Complete    | 2026-03-28 |
-| 10. Analytics Setup | 0/? | Not started | - |
+| 10. Analytics Setup | 0/1 | Not started | - |
 | 11. In-App Data Guide | 0/? | Not started | - |

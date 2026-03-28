@@ -72,6 +72,6 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 08. Events & Reports Screens | 3/3 | Complete    | 2026-03-28 |
-| 09. Entry/Exit Pages + Plausible Filters | 2/2 | Complete   | 2026-03-28 |
+| 09. Entry/Exit Pages + Plausible Filters | 2/2 | Complete    | 2026-03-28 |
 | 10. Analytics Setup | 0/? | Not started | - |
 | 11. In-App Data Guide | 0/? | Not started | - |

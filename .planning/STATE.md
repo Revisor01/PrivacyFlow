@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.2
 milestone_name: Support & API Coverage
-status: executing
-stopped_at: Completed 06-01-PLAN.md (Sites-Liste, Goals-API und Filter-Infrastruktur)
-last_updated: "2026-03-28T18:50:56.033Z"
+status: verifying
+stopped_at: Completed 06-02-PLAN.md (Fehlende Plausible-Dimensionen und AnalyticsProvider-Methoden)
+last_updated: "2026-03-28T18:55:20.921Z"
 last_activity: 2026-03-28
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 
 Phase: 06 (plausible-api-coverage) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-03-28
 
 ## Performance Metrics
@@ -56,6 +56,7 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Phase 06]: PlausibleQueryFilter als Sendable struct mit toQueryParam() — einfacher zu konstruieren als Enum, serialisiert direkt zu [Any] fuer JSONSerialization
 - [Phase 06]: buildQueryBody zentralisiert v2 Query-Bau in PlausibleAPI — getBreakdown erhaelt optionalen filters-Parameter ohne Breaking Change
 - [Phase 06]: Goals CodingKeys explizit (nicht convertFromSnakeCase) — goal_type/event_name/page_path sind non-obvious, explizite Keys verbessern Lesbarkeit
+- [Phase 06]: getPageTitles/getLanguages explizit in PlausibleAPI implementiert (nicht Default-Extension) — dokumentiert Privacy-first-Design von Plausible CE direkt im Code
 
 ### Pending Todos
 
@@ -67,7 +68,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-28T18:50:56.031Z
-Stopped at: Completed 06-01-PLAN.md (Sites-Liste, Goals-API und Filter-Infrastruktur)
+Last session: 2026-03-28T18:55:20.919Z
+Stopped at: Completed 06-02-PLAN.md (Fehlende Plausible-Dimensionen und AnalyticsProvider-Methoden)
 Resume file: None
 Next action: Execute 05-04-PLAN.md

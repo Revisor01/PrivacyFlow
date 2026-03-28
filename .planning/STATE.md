@@ -4,7 +4,7 @@ milestone: v2.2
 milestone_name: Support & API Coverage
 status: verifying
 stopped_at: Completed 06-02-PLAN.md (Fehlende Plausible-Dimensionen und AnalyticsProvider-Methoden)
-last_updated: "2026-03-28T18:55:20.921Z"
+last_updated: "2026-03-28T18:56:00.649Z"
 last_activity: 2026-03-28
 progress:
   total_phases: 4
@@ -24,8 +24,8 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 
 ## Current Position
 
-Phase: 06 (plausible-api-coverage) — EXECUTING
-Plan: 2 of 2
+Phase: 07
+Plan: Not started
 Status: Phase complete — ready for verification
 Last activity: 2026-03-28
 

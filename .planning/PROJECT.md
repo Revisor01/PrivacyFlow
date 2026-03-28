@@ -47,9 +47,9 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 - [x] Token-Logging aus Widget entfernen — Validated in Phase 1: Security Hardening
 - [ ] Auth-System auf einen Manager konsolidieren
 - [ ] AnalyticsProvider-Protokoll in ViewModel nutzen
-- [ ] Force Unwraps durch safe unwrapping ersetzen
+- [x] Force Unwraps durch safe unwrapping ersetzen — Validated in Phase 3: Stabilität
 - [x] Widget-Code in mehrere Dateien aufteilen — Validated in Phase 2: Quick Wins & Widget Split
-- [ ] Timing-Hacks durch async/await Koordination ersetzen
+- [x] Timing-Hacks durch async/await Koordination ersetzen — Validated in Phase 3: Stabilität
 - [x] Print-Statements aufräumen (#if DEBUG) — Validated in Phase 2: Quick Wins & Widget Split
 - [ ] Unit Tests für kritische Pfade ergänzen
 
@@ -105,4 +105,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-28 after Phase 2 (Quick Wins & Widget Split) completion*
+*Last updated: 2026-03-28 after Phase 3 (Stabilität) completion*

@@ -11,7 +11,7 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 ## Current State
 
 **Latest shipped:** v2.3 API Data Screens & Analytics Setup (completed 2026-03-28)
-**Next milestone:** Not yet defined
+**Current milestone:** v2.5 Pre-Release Polish
 
 ### v2.4 Accomplishments
 - App umbenannt zu "StatFlow" — Display Name, Bundle IDs, URL Scheme, Product IDs, alle Strings
@@ -73,7 +73,14 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 
 <!-- Current scope. Building toward these. -->
 
-*No active requirements — start next milestone with `/gsd:new-milestone`*
+- [ ] FIX-01: Widget Sync Race Condition — Widget zeigt nach Account-Wechsel zuverlässig aktuelle Daten
+- [ ] FIX-02: Request Cancellation — Offene Requests abbrechen wenn User navigiert
+- [ ] FIX-03: Cache Cleanup — LRU Eviction + Expiration Cleanup beim App-Start
+- [ ] FIX-04: Account Switch Loading State — Expliziter Loading-State statt Flash alter Daten
+- [ ] CLEAN-01: ~20 ungenutzte Admin/Write API-Methoden entfernen
+- [ ] CLEAN-02: Offline-Mode UI — Cached Daten mit Indikator statt Fehler-Screen
+- [ ] README-01: README.md neu schreiben (Features, Screenshots-Platzhalter, DE/EN)
+- [ ] REPO-01: GitHub Repo von PrivacyFlow zu StatFlow umbenennen
 
 ### Out of Scope
 
@@ -128,4 +135,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-28 — v2.4 Rename to StatFlow archived*
+*Last updated: 2026-03-28 — v2.5 Pre-Release Polish started*

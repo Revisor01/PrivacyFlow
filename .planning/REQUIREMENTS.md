@@ -9,10 +9,10 @@ Requirements für Code Quality & Security Hardening. Jedes Requirement mappt auf
 
 ### Security
 
-- [ ] **SEC-01**: Credentials werden ausschließlich in Keychain gespeichert (per Account-ID), nicht in UserDefaults
+- [x] **SEC-01**: Credentials werden ausschließlich in Keychain gespeichert (per Account-ID), nicht in UserDefaults
 - [ ] **SEC-02**: Widget-Account-Tokens werden mit AES-GCM verschlüsselt in App Group geschrieben
 - [ ] **SEC-03**: Auth-Token-Logging ist aus Widget-Code entfernt
-- [ ] **SEC-04**: Migration bestehender UserDefaults-Credentials beim App-Update
+- [x] **SEC-04**: Migration bestehender UserDefaults-Credentials beim App-Update
 
 ### Architektur
 
@@ -64,10 +64,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SEC-01 | Phase 1 | Pending |
+| SEC-01 | Phase 1 | Complete |
 | SEC-02 | Phase 1 | Pending |
 | SEC-03 | Phase 1 | Pending |
-| SEC-04 | Phase 1 | Pending |
+| SEC-04 | Phase 1 | Complete |
 | STAB-03 | Phase 2 | Pending |
 | STRUC-01 | Phase 2 | Pending |
 | STRUC-02 | Phase 2 | Pending |

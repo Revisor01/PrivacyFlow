@@ -28,9 +28,9 @@
   3. Die Datei `widget_accounts.json` im App Group Container ist mit AES-GCM verschlüsselt (identisches Schema wie `widget_credentials.encrypted`)
   4. Die Widget-Logs in Console.app zeigen keine Token-Präfixe oder Credential-Fragmente mehr
   5. Ein neu hinzugefügter Account schreibt Credentials ausschließlich in die Keychain (per Account-ID gescoped)
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
-- [ ] 01-01-PLAN.md — Keychain-basierte Credential-Speicherung mit Account-ID-Scoping und Migration (SEC-01, SEC-04)
+- [x] 01-01-PLAN.md — Keychain-basierte Credential-Speicherung mit Account-ID-Scoping und Migration (SEC-01, SEC-04)
 - [ ] 01-02-PLAN.md — Widget-Account-Verschluesselung und Token-Log-Entfernung (SEC-02, SEC-03)
 
 ### Phase 2: Quick Wins & Widget Split
@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Security Hardening | 0/2 | Planning complete | - |
+| 1. Security Hardening | 1/2 | In Progress|  |
 | 2. Quick Wins & Widget Split | 0/? | Not started | - |
 | 3. Stabilität | 0/? | Not started | - |
 | 4. Architektur | 0/? | Not started | - |

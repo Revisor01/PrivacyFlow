@@ -37,17 +37,17 @@ Neue UI-Screens für die in v2.2 implementierten API-Endpoints, Analytics auf ec
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SCREEN-01 | TBD | Pending |
-| SCREEN-02 | TBD | Pending |
-| SCREEN-03 | TBD | Pending |
-| SCREEN-04 | TBD | Pending |
-| SETUP-01 | TBD | Pending |
-| GUIDE-01 | TBD | Pending |
+| SCREEN-01 | Phase 08 | Pending |
+| SCREEN-02 | Phase 08 | Pending |
+| SCREEN-03 | Phase 09 | Pending |
+| SCREEN-04 | Phase 09 | Pending |
+| SETUP-01 | Phase 10 | Pending |
+| GUIDE-01 | Phase 11 | Pending |
 
 **Coverage:**
 - v2.3 requirements: 6 total
-- Mapped to phases: 0
-- Unmapped: 6 ⚠️
+- Mapped to phases: 6
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-28*

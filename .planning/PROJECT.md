@@ -11,7 +11,10 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 ## Current State
 
 **Latest shipped:** v2.3 API Data Screens & Analytics Setup (completed 2026-03-28)
-**Current milestone:** v2.4 Rename to StatFlow
+**Next milestone:** Not yet defined
+
+### v2.4 Accomplishments
+- App umbenannt zu "StatFlow" — Display Name, Bundle IDs, URL Scheme, Product IDs, alle Strings
 
 ### v2.3 Accomplishments
 - EventsView + ReportsHub (Funnel, UTM, Goals, Attribution) als neue Screens
@@ -70,10 +73,7 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 
 <!-- Current scope. Building toward these. -->
 
-- [ ] RENAME-01: App-Name überall auf "StatFlow" ändern (Display Name, Strings, Kommentare)
-- [ ] RENAME-02: Bundle IDs ändern (App + Widget + App Group)
-- [ ] RENAME-03: URL Scheme + Deep Links auf statflow:// umstellen
-- [ ] RENAME-04: StoreKit Product IDs auf de.godsapp.statflow.* migrieren
+*No active requirements — start next milestone with `/gsd:new-milestone`*
 
 ### Out of Scope
 
@@ -128,4 +128,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-28 — v2.4 Rename to StatFlow started*
+*Last updated: 2026-03-28 — v2.4 Rename to StatFlow archived*

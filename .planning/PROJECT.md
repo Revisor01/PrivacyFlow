@@ -11,7 +11,7 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 ## Current State
 
 **Latest shipped:** v2.0 Code Quality & Security Hardening (completed 2026-03-28)
-**Next milestone:** Not yet defined — run `/gsd:new-milestone` to start
+**Current milestone:** v2.1 UX Polish & Features
 
 ### v2.0 Accomplishments
 - Credentials sicher in Keychain gespeichert (per Account-ID), Widget-Tokens AES-GCM-verschlüsselt
@@ -48,41 +48,42 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 
 <!-- Current scope. Building toward these. -->
 
-*No active requirements — start next milestone with `/gsd:new-milestone`*
+- [ ] Account-Switcher im Dashboard kompakter (Button statt großer Bereich)
+- [ ] "Abbrechen"-Button im Account-Hinzufügen-Modal entfernen (wenn von Switcher)
+- [ ] Widget-Tap öffnet Website-Details (Deep Link Fix)
+- [ ] "Alle Accounts"-Ansicht im Dashboard (kombinierte Stats)
 
 ### Out of Scope
 
 <!-- Explicit boundaries. Includes reasoning to prevent re-adding. -->
 
-- Neue Features (neue Views, neue API-Endpunkte) — reines Qualitäts-Milestone
 - Externe Dependencies einführen — bewusste Entscheidung, alles custom zu halten
-- UI-Redesign — kein visueller Scope in diesem Milestone
 - iPad/macOS Support — Fokus auf bestehende iOS-App
+- Komplett neues UI-Design — v2.1 ist UX-Polish, kein Redesign
 
 ## Context
 
-- iOS 17+ Deployment Target, reine SwiftUI App
+- iOS 18+ Deployment Target, reine SwiftUI App (Swift 6.0)
 - Keine externen Dependencies (kein SPM, CocoaPods, Carthage)
-- Null Tests vorhanden — jedes Refactoring ohne Safety Net
-- Widget ist 2004-Zeilen Monolith mit duplizierter API-Logik
-- Drei Auth-Systeme: AuthManager, AccountManager, AnalyticsManager
-- UmamiAPI (actor) vs PlausibleAPI (@MainActor class) — inkonsistente Concurrency
-- App bereits released bis v1.3 auf GitHub (Revisor01/PrivacyFlow)
+- 58 Unit Tests als Sicherheitsnetz (KeychainService, AccountManager, API-Parsing, DateRange, Cache)
+- Widget in 9 Dateien aufgeteilt, beide API-Clients als actors
+- AccountManager ist einzige Auth-Autorität
+- App released als v2.0 auf GitHub (Revisor01/PrivacyFlow)
 
 ## Constraints
 
 - **Tech Stack**: Swift/SwiftUI only — keine externen Dependencies
-- **Kompatibilität**: Alle Änderungen müssen bestehende Account-Daten migrieren (UserDefaults → Keychain)
-- **Widget**: Widget Extension teilt Code über App Group — Shared Framework oder duplizierter Code
-- **Regressions**: Ohne Tests muss jede Phase manuell verifiziert werden bis Tests existieren
+- **Kompatibilität**: Account-Daten in Keychain, Widget-Daten verschlüsselt in App Group
+- **Widget**: Widget Extension teilt Code über App Group
+- **Tests**: 58 Unit Tests vorhanden — neue Features sollten Tests haben
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| AccountManager als Single Source of Truth für Auth | Drei überlappende Systeme verursachen State-Sync-Probleme | — Pending |
-| Keychain per Account-ID statt Single-Slot | Häufiges Account-Switching verursacht unnötige Keychain-Writes | — Pending |
-| actor-Pattern für beide API-Clients | Inkonsistenz zwischen UmamiAPI (actor) und PlausibleAPI (@MainActor) | — Pending |
+| AccountManager als Single Source of Truth für Auth | Drei überlappende Systeme verursachen State-Sync-Probleme | Shipped v2.0 |
+| Keychain per Account-ID statt Single-Slot | Häufiges Account-Switching verursacht unnötige Keychain-Writes | Shipped v2.0 |
+| actor-Pattern für beide API-Clients | Inkonsistenz zwischen UmamiAPI (actor) und PlausibleAPI (@MainActor) | Shipped v2.0 |
 
 ## Evolution
 
@@ -102,4 +103,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-03-28 — v2.0 milestone archived*
+*Last updated: 2026-03-28 — v2.1 milestone started*

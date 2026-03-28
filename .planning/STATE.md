@@ -1,17 +1,17 @@
 ---
 gsd_state_version: 1.0
-milestone: v2.0
-milestone_name: Code Quality & Security Hardening
-status: complete
-stopped_at: Milestone v2.0 archived
+milestone: v2.1
+milestone_name: UX Polish & Features
+status: planning
+stopped_at: Roadmap erstellt
 last_updated: "2026-03-28"
 last_activity: 2026-03-28
 progress:
-  total_phases: 5
-  completed_phases: 5
-  total_plans: 15
-  completed_plans: 15
-  percent: 100
+  total_phases: 3
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -21,51 +21,40 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** Nutzer können ihre Website-Analytics sicher und übersichtlich vom iPhone aus überwachen
-**Current focus:** Milestone v2.0 complete — no active milestone
+**Current focus:** Phase 1 — Dashboard UX Polish
 
 ## Current Position
 
-Phase: — (milestone complete)
-Plan: —
-Status: Milestone v2.0 archived
-Last activity: 2026-03-28 — v2.0 Code Quality & Security Hardening completed and archived
+Phase: 1 of 3 (Dashboard UX Polish)
+Plan: — of — in current phase
+Status: Ready to plan
+Last activity: 2026-03-28 — Roadmap für v2.1 erstellt, Phase 1 bereit zur Planung
 
-Progress: [██████████] 100%
+Progress: [░░░░░░░░░░] 0%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 15
-- Phases: 5/5
-- Tests: 58/58 passing
-- Total commits: 70
-
-**By Phase:**
-
-| Phase | Plans | Duration | Files |
-|-------|-------|----------|-------|
-| 1. Security Hardening | 2/2 | ~35min | 5 files |
-| 2. Quick Wins & Widget Split | 4/4 | ~60min | 36 files |
-| 3. Stabilität | 2/2 | ~8min | 5 files |
-| 4. Architektur | 3/3 | ~40min | 17 files |
-| 5. Tests | 4/4 | ~58min | 11 files |
+- Total plans completed: 0
+- Average duration: —
+- Total execution time: —
 
 ## Accumulated Context
 
 ### Decisions
 
-All decisions archived in milestones/v2.0-ROADMAP.md.
+Decisions are logged in PROJECT.md Key Decisions table.
 
 ### Pending Todos
 
-None.
+None yet.
 
 ### Blockers/Concerns
 
-None — milestone complete.
+None.
 
 ## Session Continuity
 
 Last session: 2026-03-28
-Stopped at: Milestone v2.0 archived
+Stopped at: Roadmap erstellt, Phase 1 bereit zur Planung
 Resume file: None

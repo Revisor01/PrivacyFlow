@@ -69,7 +69,9 @@ Plans:
   1. Benachrichtigungen erscheinen in der Notification Center strukturiert gruppiert (z.B. nach Website oder Provider)
   2. Bei 10+ überwachten Websites entsteht kein unübersichtlicher Benachrichtigungs-Flood
   3. Nutzer können Benachrichtigungs-Gruppen in den Einstellungen nachvollziehen
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 07-01-PLAN.md — Account-gruppierte Notifications mit threadIdentifier, Summary-Logik und Settings-UI Redesign
 
 ## Progress
 
@@ -78,4 +80,4 @@ Plans:
 | 04. Support & Branding | v2.2 | 1/1 | Complete    | 2026-03-28 |
 | 05. Umami API Coverage | v2.2 | 2/4 | Complete    | 2026-03-28 |
 | 06. Plausible API Coverage | v2.2 | 2/2 | Complete    | 2026-03-28 |
-| 07. Push-Benachrichtigungen | v2.2 | 0/TBD | Not started | - |
+| 07. Push-Benachrichtigungen | v2.2 | 0/1 | Not started | - |

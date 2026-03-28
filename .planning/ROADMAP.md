@@ -15,7 +15,7 @@
 - [x] **Phase 04: Support & Branding** - Einheitliche Support-Option und Branding über alle Apps (completed 2026-03-28)
 - [x] **Phase 05: Umami API Coverage** - Vollständige Abdeckung aller Umami Self-Hosted API-Endpunkte (completed 2026-03-28)
 - [x] **Phase 06: Plausible API Coverage** - Vollständige Abdeckung aller Plausible CE Self-Hosted API-Endpunkte (completed 2026-03-28)
-- [ ] **Phase 07: Push-Benachrichtigungen** - Strukturierte Gruppierung der Benachrichtigungs-Logik
+- [x] **Phase 07: Push-Benachrichtigungen** - Strukturierte Gruppierung der Benachrichtigungs-Logik (completed 2026-03-28)
 
 ## Phase Details
 
@@ -71,7 +71,7 @@ Plans:
   3. Nutzer können Benachrichtigungs-Gruppen in den Einstellungen nachvollziehen
 **Plans**: 1 plan
 Plans:
-- [ ] 07-01-PLAN.md — Account-gruppierte Notifications mit threadIdentifier, Summary-Logik und Settings-UI Redesign
+- [x] 07-01-PLAN.md — Account-gruppierte Notifications mit threadIdentifier, Summary-Logik und Settings-UI Redesign
 
 ## Progress
 
@@ -80,4 +80,4 @@ Plans:
 | 04. Support & Branding | v2.2 | 1/1 | Complete    | 2026-03-28 |
 | 05. Umami API Coverage | v2.2 | 2/4 | Complete    | 2026-03-28 |
 | 06. Plausible API Coverage | v2.2 | 2/2 | Complete    | 2026-03-28 |
-| 07. Push-Benachrichtigungen | v2.2 | 0/1 | Not started | - |
+| 07. Push-Benachrichtigungen | v2.2 | 1/1 | Complete   | 2026-03-28 |

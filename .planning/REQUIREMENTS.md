@@ -19,7 +19,7 @@ Requirements für Support & API Coverage. Aus User-Feedback nach v2.1.
 
 ### Push-Benachrichtigungen
 
-- [ ] **NOTIF-01**: Push-Benachrichtigungs-Logik überarbeiten — strukturierte Gruppierung statt flacher Liste, skalierbar bei vielen Seiten
+- [x] **NOTIF-01**: Push-Benachrichtigungs-Logik überarbeiten — strukturierte Gruppierung statt flacher Liste, skalierbar bei vielen Seiten
 
 ## Out of Scope
 
@@ -37,7 +37,7 @@ Requirements für Support & API Coverage. Aus User-Feedback nach v2.1.
 | SUP-02 | Phase 04 | Complete |
 | API-01 | Phase 05 | Complete |
 | API-02 | Phase 06 | Complete |
-| NOTIF-01 | Phase 07 | Pending |
+| NOTIF-01 | Phase 07 | Complete |
 
 **Coverage:**
 - v2.2 requirements: 5 total

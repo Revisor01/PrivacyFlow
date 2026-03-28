@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.2
 milestone_name: Support & API Coverage
 status: executing
-stopped_at: Completed 05-03-PLAN.md (Report API Methods)
-last_updated: "2026-03-28T18:42:00.000Z"
+stopped_at: Completed 05-04-PLAN.md (Remaining API Endpoints)
+last_updated: "2026-03-28T18:36:02.429Z"
 last_activity: 2026-03-28
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 5
-  completed_plans: 3
+  completed_plans: 5
 ---
 
 # Project State
@@ -25,8 +25,8 @@ See: .planning/PROJECT.md (updated 2026-03-28)
 ## Current Position
 
 Phase: 05 (umami-api-coverage) — EXECUTING
-Plan: 3 of 4
-Status: Plan 03 complete — ready for 04
+Plan: 4 of 4
+Status: Ready to execute
 Last activity: 2026-03-28
 
 ## Performance Metrics
@@ -51,6 +51,8 @@ Decisions are logged in PROJECT.md Key Decisions table.
 - [Phase 04-support-branding]: tierColor als eigene Product-Extension — View bleibt schlank, ValetudiOS kann direkt nutzen
 - [Phase 05-umami-api-coverage]: Alle neuen Modelle Codable+Sendable — actor-API-Clients erfordern Sendable
 - [Phase 05-umami-api-coverage]: Identifiable nur wo SwiftUI-Listen-Verwendung sinnvoll (nicht bei reinen Wrapper-Responses)
+- [Phase 05-umami-api-coverage]: TeamWebsitesResponse/UserWebsitesResponse/UserTeamsResponse als separate Structs fuer paginierte API-Antworten
+- [Phase 05-umami-api-coverage]: getUserTeams (non-admin, GET /api/teams) und getTeams (admin, GET /api/admin/teams) co-existieren — unterschiedliche Endpunkte
 
 ### Pending Todos
 
@@ -62,7 +64,7 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-28T18:42:00.000Z
-Stopped at: Completed 05-03-PLAN.md (Report API Methods)
+Last session: 2026-03-28T18:36:02.426Z
+Stopped at: Completed 05-04-PLAN.md (Remaining API Endpoints)
 Resume file: None
 Next action: Execute 05-04-PLAN.md

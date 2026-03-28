@@ -67,7 +67,7 @@ Plans:
 
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
-| 04. Support & Branding | v2.2 | 1/1 | Complete   | 2026-03-28 |
+| 04. Support & Branding | v2.2 | 1/1 | Complete    | 2026-03-28 |
 | 05. Umami API Coverage | v2.2 | 0/TBD | Not started | - |
 | 06. Plausible API Coverage | v2.2 | 0/TBD | Not started | - |
 | 07. Push-Benachrichtigungen | v2.2 | 0/TBD | Not started | - |

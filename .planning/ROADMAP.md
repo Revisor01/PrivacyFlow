@@ -13,7 +13,7 @@
 - [x] **Phase 1: Security Hardening** - Credentials in Keychain migrieren, Widget-Tokens verschlüsseln, Token-Logging entfernen (completed 2026-03-28)
 - [ ] **Phase 2: Quick Wins & Widget Split** - Print-Statements bereinigen, Widget-Monolith aufteilen, große Views extrahieren
 - [ ] **Phase 3: Stabilität** - Force Unwraps durch safe unwrapping ersetzen, Timing-Hacks durch async/await ablösen
-- [ ] **Phase 4: Architektur** - Concurrency vereinheitlichen, AnalyticsProvider-Protokoll im ViewModel nutzen, Auth-System konsolidieren
+- [x] **Phase 4: Architektur** - Concurrency vereinheitlichen, AnalyticsProvider-Protokoll im ViewModel nutzen, Auth-System konsolidieren (completed 2026-03-28)
 - [ ] **Phase 5: Tests** - Unit Tests für kritische Pfade ergänzen
 
 ## Phase Details
@@ -72,11 +72,11 @@ Plans:
   2. `WebsiteDetailViewModel` enthält kein `if isPlausible`-Branching mehr — alle `loadX()`-Methoden rufen ausschließlich `currentProvider.methodName()` auf
   3. `AuthManager` ist entfernt oder auf einen dünnen Wrapper reduziert — `AccountManager` ist die einzige Autorität über den Auth-State
   4. Login, Account-Switching und Logout funktionieren für Umami- und Plausible-Accounts nach der Konsolidierung korrekt
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 Plans:
 - [x] 04-01-PLAN.md — PlausibleAPI von @MainActor class auf actor umstellen (ARCH-03)
 - [x] 04-02-PLAN.md — WebsiteDetailViewModel auf AnalyticsProvider-Protokoll umstellen (ARCH-02)
-- [ ] 04-03-PLAN.md — AuthManager entfernen, Auth-State in AccountManager konsolidieren (ARCH-01)
+- [x] 04-03-PLAN.md — AuthManager entfernen, Auth-State in AccountManager konsolidieren (ARCH-01)
 
 ### Phase 5: Tests
 **Goal**: Kritische Pfade sind mit Unit Tests abgedeckt. Zukünftige Refactorings haben ein Sicherheitsnetz.
@@ -100,5 +100,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Security Hardening | 2/2 | Complete   | 2026-03-28 |
 | 2. Quick Wins & Widget Split | 2/4 | In Progress|  |
 | 3. Stabilität | 1/2 | In Progress|  |
-| 4. Architektur | 2/3 | In Progress|  |
+| 4. Architektur | 3/3 | Complete   | 2026-03-28 |
 | 5. Tests | 0/? | Not started | - |

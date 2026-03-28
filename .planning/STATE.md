@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Code Quality & Security Hardening
-status: executing
-stopped_at: Completed 04-architektur-02-PLAN.md
-last_updated: "2026-03-28T03:45:08.491Z"
+status: verifying
+stopped_at: Completed 04-architektur-03-PLAN.md
+last_updated: "2026-03-28T03:50:58.198Z"
 last_activity: 2026-03-28
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 11
-  completed_plans: 10
+  completed_plans: 11
   percent: 0
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-03-27)
 
 Phase: 04 (Architektur) — EXECUTING
 Plan: 3 of 3
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-03-28
 
 Progress: [░░░░░░░░░░] 0%
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-stabilitaet P01 | 3min | 2 tasks | 3 files |
 | Phase 04-architektur P01 | 15min | 2 tasks | 5 files |
 | Phase 04-architektur P02 | 15min | 2 tasks | 3 files |
+| Phase 04-architektur P03 | 10min | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -82,6 +83,8 @@ Recent decisions affecting current work:
 - [Phase 04-architektur]: await MainActor.run statt Task-Wrapping fuer @MainActor-Aufrufe aus actor-Methoden
 - [Phase 04-architektur]: Protocol Extension fuer Plausible-Luecken: getPageTitles/getLanguages/getScreens/getEvents geben [] zurueck via extension AnalyticsProvider
 - [Phase 04-architektur]: AnalyticsManager.isAuthenticated entfernt: redundant zu currentProvider != nil, nicht von Views direkt gelesen
+- [Phase 04-architektur]: LoginViewModel delegiert alle Post-Login-Effekte an AccountManager.setActiveAccount() -- kein doppeltes Keychain-Schreiben
+- [Phase 04-architektur]: AccountManager.clearActiveAccount() als Drop-in-Ersatz fuer authManager.logout() -- erweitert um UmamiAPI.clearConfiguration und PlausibleSitesManager.clearAll
 
 ### Pending Todos
 
@@ -94,6 +97,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-28T03:45:08.488Z
-Stopped at: Completed 04-architektur-02-PLAN.md
+Last session: 2026-03-28T03:50:58.196Z
+Stopped at: Completed 04-architektur-03-PLAN.md
 Resume file: None

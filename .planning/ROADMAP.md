@@ -10,7 +10,7 @@
 
 **Milestone Goal:** Alle identifizierten Security-, Architektur-, Stabilitäts- und Qualitätsprobleme systematisch beheben. Die App speichert Credentials sicher in der Keychain, hat ein konsolidiertes Auth-System, nutzt das AnalyticsProvider-Protokoll korrekt und ist mit Unit Tests gegen Regressionen abgesichert.
 
-- [ ] **Phase 1: Security Hardening** - Credentials in Keychain migrieren, Widget-Tokens verschlüsseln, Token-Logging entfernen
+- [x] **Phase 1: Security Hardening** - Credentials in Keychain migrieren, Widget-Tokens verschlüsseln, Token-Logging entfernen (completed 2026-03-28)
 - [ ] **Phase 2: Quick Wins & Widget Split** - Print-Statements bereinigen, Widget-Monolith aufteilen, große Views extrahieren
 - [ ] **Phase 3: Stabilität** - Force Unwraps durch safe unwrapping ersetzen, Timing-Hacks durch async/await ablösen
 - [ ] **Phase 4: Architektur** - Concurrency vereinheitlichen, AnalyticsProvider-Protokoll im ViewModel nutzen, Auth-System konsolidieren
@@ -28,10 +28,10 @@
   3. Die Datei `widget_accounts.json` im App Group Container ist mit AES-GCM verschlüsselt (identisches Schema wie `widget_credentials.encrypted`)
   4. Die Widget-Logs in Console.app zeigen keine Token-Präfixe oder Credential-Fragmente mehr
   5. Ein neu hinzugefügter Account schreibt Credentials ausschließlich in die Keychain (per Account-ID gescoped)
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 Plans:
 - [x] 01-01-PLAN.md — Keychain-basierte Credential-Speicherung mit Account-ID-Scoping und Migration (SEC-01, SEC-04)
-- [ ] 01-02-PLAN.md — Widget-Account-Verschluesselung und Token-Log-Entfernung (SEC-02, SEC-03)
+- [x] 01-02-PLAN.md — Widget-Account-Verschluesselung und Token-Log-Entfernung (SEC-02, SEC-03)
 
 ### Phase 2: Quick Wins & Widget Split
 **Goal**: Der Code ist aufgeräumt und besser navigierbar. Print-Statements sind auf Debug-Builds beschränkt, der 2004-Zeilen Widget-Monolith ist in separate Dateien aufgeteilt, und die größten Views haben ausgelagerte Subviews.
@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Security Hardening | 1/2 | In Progress|  |
+| 1. Security Hardening | 2/2 | Complete   | 2026-03-28 |
 | 2. Quick Wins & Widget Split | 0/? | Not started | - |
 | 3. Stabilität | 0/? | Not started | - |
 | 4. Architektur | 0/? | Not started | - |

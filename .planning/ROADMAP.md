@@ -52,7 +52,7 @@ Plans:
   4. Tap auf eine Website navigiert wie gewohnt zur Detail-Ansicht (mit automatischem Account-Switch falls nötig)
 **Plans:** 1 plan
 Plans:
-- [ ] 03-01-PLAN.md — Alle-Modus im Account-Switcher + Provider-Badges + Auto-Account-Switch
+- [x] 03-01-PLAN.md — Alle-Modus im Account-Switcher + Provider-Badges + Auto-Account-Switch
 **UI hint**: yes
 
 ## Progress

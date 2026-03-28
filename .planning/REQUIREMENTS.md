@@ -18,7 +18,7 @@ Requirements für UX Polish & Features. Aus User-Feedback nach v2.0.
 
 ### Features
 
-- [ ] **FEAT-01**: "Alle"-Option im Account-Switcher — kombinierte Ansicht aller Stats über alle Analytics-Accounts hinweg
+- [x] **FEAT-01**: "Alle"-Option im Account-Switcher — kombinierte Ansicht aller Stats über alle Analytics-Accounts hinweg
 
 ## Out of Scope
 
@@ -36,7 +36,7 @@ Requirements für UX Polish & Features. Aus User-Feedback nach v2.0.
 | UX-01 | Phase 1 | Complete |
 | UX-02 | Phase 1 | Complete |
 | BUG-01 | Phase 2 | Pending |
-| FEAT-01 | Phase 3 | Pending |
+| FEAT-01 | Phase 3 | Complete |
 
 **Coverage:**
 - v2.1 requirements: 4 total

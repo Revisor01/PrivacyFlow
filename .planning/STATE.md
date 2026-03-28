@@ -1,16 +1,12 @@
 ---
 gsd_state_version: 1.0
-milestone: v2.3
-milestone_name: API Data Screens & Analytics Setup
-status: active
-stopped_at: null
-last_updated: "2026-03-28T21:00:00.000Z"
+milestone: v2.0
+milestone_name: milestone
+status: verifying
+stopped_at: Completed 08-events-reports-screens 08-01-PLAN.md
+last_updated: "2026-03-28T20:47:04.873Z"
 last_activity: 2026-03-28
 progress:
-  total_phases: 4
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
   percent: 0
 ---
 
@@ -21,31 +17,40 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** Nutzer können ihre Website-Analytics sicher und übersichtlich vom iPhone aus überwachen
-**Current focus:** v2.3 API Data Screens & Analytics Setup — Phase 08 bereit zur Planung
+**Current focus:** Phase 08 — Events & Reports Screens
 
 ## Current Position
 
-Phase: 08 - Events & Reports Screens
-Plan: —
-Status: Not started
-Last activity: 2026-03-28 — Roadmap v2.3 erstellt
+Phase: 08-events-reports-screens
+Plan: 01 complete (2/3 remaining)
+Status: Plan 01 complete — Events Screen shipped
+Last activity: 2026-03-28
 
-```
-[░░░░░░░░░░░░░░░░░░░░] 0% — 0/4 phases complete
-```
+Progress: [░░░░░░░░░░] 0%
+
+## Performance Metrics
+
+**Velocity:**
+
+- Total plans completed: 0
+- Average duration: —
+- Total execution time: —
 
 ## Accumulated Context
 
 ### Decisions
 
-- [v2.2 Phase 04]: SF Symbols statt Emojis für Support-Buttons
-- [v2.2 Phase 04]: Kein Easter Egg — dezenter Untertitel "Ein Pastorenprojekt"
-- [v2.2 Phase 05]: API-Infrastruktur ohne UI-Integration (Future Work → jetzt v2.3)
-- [v2.2 Phase 07]: Summary-Notification ab 5+ aktivierten Websites pro Account
+Decisions are logged in PROJECT.md Key Decisions table.
+
+- [Phase 01-dashboard-ux-polish]: Picker-in-Menu-Pattern fuer Account-Switcher mit automatischer Checkmark-Markierung
+- [Phase 01-dashboard-ux-polish]: @ViewBuilder computed property fuer komplexe Menu-Bodies (Compiler Type-Check-Timeout vermeiden)
+- [Phase 03-alle-accounts-ansicht]: Manual Buttons (not Picker) in account switcher Menu for heterogeneous 'Alle' + account options
+- [Phase 03-alle-accounts-ansicht]: websiteAccountMap pattern for website-to-account lookup in flat All-mode view
+- [Phase 08-events-reports-screens]: Each view (EventsView + EventDetailView) owns its own @StateObject EventsViewModel
 
 ### Pending Todos
 
-None.
+None yet.
 
 ### Blockers/Concerns
 
@@ -53,6 +58,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-28
-Stopped at: Roadmap v2.3 erstellt — bereit für `/gsd:plan-phase 08`
+Last session: 2026-03-28T20:47:04.872Z
+Stopped at: Completed 08-events-reports-screens 08-01-PLAN.md
 Resume file: None

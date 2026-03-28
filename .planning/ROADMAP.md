@@ -46,7 +46,7 @@ Plans:
 Plans:
 - [x] 02-01-PLAN.md — Widget-Monolith in 9 Dateien aufteilen (STRUC-01, STAB-03)
 - [x] 02-02-PLAN.md — Print-Statement-Cleanup in 14 Main-App-Dateien (STAB-03)
-- [ ] 02-03-PLAN.md — View-Extraktion WebsiteDetailView, AdminView, CompareView (STRUC-02, STAB-03)
+- [x] 02-03-PLAN.md — View-Extraktion WebsiteDetailView, AdminView, CompareView (STRUC-02, STAB-03)
 - [ ] 02-04-PLAN.md — Automatisierte und visuelle Verifikation (STAB-03, STRUC-01, STRUC-02)
 **UI hint**: yes
 

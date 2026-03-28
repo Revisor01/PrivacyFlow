@@ -28,8 +28,8 @@ Requirements für Code Quality & Security Hardening. Jedes Requirement mappt auf
 
 ### Struktur
 
-- [ ] **STRUC-01**: Widget-Code in separate Dateien aufgeteilt (Models, Networking, Cache, Views, Intents)
-- [ ] **STRUC-02**: Große Views (WebsiteDetailView, AdminView, CompareView) in Subviews extrahiert
+- [x] **STRUC-01**: Widget-Code in separate Dateien aufgeteilt (Models, Networking, Cache, Views, Intents)
+- [x] **STRUC-02**: Große Views (WebsiteDetailView, AdminView, CompareView) in Subviews extrahiert
 
 ### Tests
 
@@ -69,8 +69,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SEC-03 | Phase 1 | Complete |
 | SEC-04 | Phase 1 | Complete |
 | STAB-03 | Phase 2 | Complete |
-| STRUC-01 | Phase 2 | Pending |
-| STRUC-02 | Phase 2 | Pending |
+| STRUC-01 | Phase 2 | Complete |
+| STRUC-02 | Phase 2 | Complete |
 | STAB-01 | Phase 3 | Pending |
 | STAB-02 | Phase 3 | Pending |
 | ARCH-03 | Phase 4 | Pending |

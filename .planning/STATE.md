@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 13-critical-bug-fixes/13-01-PLAN.md
-last_updated: "2026-03-29T00:01:37.114Z"
-last_activity: 2026-03-29
+status: planning
+stopped_at: Completed 13-02-PLAN.md
+last_updated: "2026-03-28T23:50:00.109Z"
+last_activity: 2026-03-28
 progress:
   total_phases: 10
   completed_phases: 8
@@ -20,14 +20,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-28)
 
 **Core value:** Nutzer können ihre Website-Analytics sicher und übersichtlich vom iPhone aus überwachen
-**Current focus:** v2.5 Pre-Release Polish — Phase 13 Critical Bug Fixes
+**Current focus:** v2.4 Rename to StatFlow
 
 ## Current Position
 
-Phase: 13
-Plan: 01 (completed)
-Status: In progress
-Last activity: 2026-03-29
+Phase: 12
+Plan: Not started
+Status: Ready for planning
+Last activity: 2026-03-28
 
 ## Accumulated Context
 
@@ -35,8 +35,8 @@ Last activity: 2026-03-29
 
 - App-Name: StatFlow (ersetzt PrivacyFlow/InsightFlow)
 - Bundle ID Prefix: de.godsapp.statflow
-- clearStaleEntries checks cachedAt (not expiresAt) to catch stale entries regardless of TTL
-- clearFirst defaults to false; only accountDidChange passes clearFirst: true
+- [Phase 13-critical-bug-fixes]: syncWidgetData schreibt Widget-Daten ohne Timeline-Reload — reloadAllTimelines nur in updateWidgetCredentials nach abgeschlossenen async-Ops
+- [Phase 13-critical-bug-fixes]: Task-Handle-Pattern in WebsiteDetailViewModel: loadingTask als private var mit cancel/replace fuer ViewModel-async-Methoden
 
 ### Blockers/Concerns
 
@@ -44,6 +44,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-29T00:01:37.112Z
-Stopped at: Completed 13-critical-bug-fixes/13-01-PLAN.md
+Last session: 2026-03-28T23:49:45.944Z
+Stopped at: Completed 13-02-PLAN.md
 Resume file: None

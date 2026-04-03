@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.6
 milestone_name: Design Polish
-status: active
-stopped_at: null
-last_updated: "2026-03-28T00:00:00.000Z"
-last_activity: 2026-03-28
+status: verifying
+stopped_at: Completed 16-01-PLAN.md
+last_updated: "2026-04-03T19:46:39.787Z"
+last_activity: 2026-04-03
 progress:
   total_phases: 2
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  completed_phases: 1
+  total_plans: 1
+  completed_plans: 1
   percent: 0
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-29)
 
 **Core value:** Nutzer können ihre Website-Analytics sicher und übersichtlich vom iPhone aus überwachen
-**Current focus:** v2.6 Design Polish — Phase 16: UI & Layout Fixes
+**Current focus:** Phase 16 — UI & Layout Fixes
 
 ## Current Position
 
-Phase: 16 — UI & Layout Fixes
-Plan: —
-Status: Not started
-Last activity: 2026-03-28 — Roadmap v2.6 erstellt
+Phase: 16 (UI & Layout Fixes) — EXECUTING
+Plan: 1 of 1
+Status: Phase complete — ready for verification
+Last activity: 2026-04-03
 
 Progress: [░░░░░░░░░░] 0% (0/2 phases)
 
@@ -38,6 +38,7 @@ Progress: [░░░░░░░░░░] 0% (0/2 phases)
 
 - App-Name: StatFlow (ersetzt PrivacyFlow/InsightFlow)
 - Bundle ID Prefix: de.godsapp.statflow
+- [Phase 16]: NavigationLink-Rows benötigen keine manuelle Chevrons — List fügt automatisch Disclosure-Indicator hinzu; Button-Rows behalten manuellen Chevron
 
 ### Blockers/Concerns
 
@@ -45,6 +46,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-28
-Stopped at: Roadmap v2.6 finalisiert — bereit für Phase 16
+Last session: 2026-04-03T19:46:34.707Z
+Stopped at: Completed 16-01-PLAN.md
 Resume file: None

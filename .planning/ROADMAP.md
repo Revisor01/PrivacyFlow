@@ -16,7 +16,7 @@
 
 ### Phases
 
-- [ ] **Phase 16: UI & Layout Fixes** - Dashboard-Kacheln egalisieren, Settings-Chevrons bereinigen, Dove-Icon reparieren, Notification-Texte schärfen
+- [x] **Phase 16: UI & Layout Fixes** - Dashboard-Kacheln egalisieren, Settings-Chevrons bereinigen, Dove-Icon reparieren, Notification-Texte schärfen (completed 2026-04-03)
 - [ ] **Phase 17: Modale & Account-Flow** - Account-hinzufügen-Flow vervollständigen, Modal-Toolbar auf Icons vereinheitlichen
 
 ### Phase Details
@@ -32,7 +32,7 @@
   4. Die Beschreibungstexte der Benachrichtigungs-Einstellungen sind klar und verständlich formuliert
 **Plans**: 1 plan
 Plans:
-- [ ] 16-01-PLAN.md — Alle vier UI-Fixes: Kachelhöhe, Chevrons, Dove-Icon, Notification-Strings
+- [x] 16-01-PLAN.md — Alle vier UI-Fixes: Kachelhöhe, Chevrons, Dove-Icon, Notification-Strings
 **UI hint**: yes
 
 ### Phase 17: Modale & Account-Flow
@@ -53,5 +53,5 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 16. UI & Layout Fixes | 0/? | Not started | - |
+| 16. UI & Layout Fixes | 1/1 | Complete   | 2026-04-03 |
 | 17. Modale & Account-Flow | 0/? | Not started | - |

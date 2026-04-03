@@ -9,7 +9,7 @@ Design Polish: UI-Inkonsistenzen beheben, Modale vereinheitlichen, fehlende Stri
 
 ### Dashboard
 
-- [ ] **DASH-01**: Die 4 Dashboard-Kacheln (Sessions, Vergleich, Events, Reports) sollen exakt gleich groß sein — Events-Kachel ist aktuell zu hoch
+- [x] **DASH-01**: Die 4 Dashboard-Kacheln (Sessions, Vergleich, Events, Reports) sollen exakt gleich groß sein — Events-Kachel ist aktuell zu hoch
 
 ### Onboarding & Account
 
@@ -23,12 +23,12 @@ Design Polish: UI-Inkonsistenzen beheben, Modale vereinheitlichen, fehlende Stri
 
 ### Benachrichtigungen
 
-- [ ] **NOTIF-01**: Beschreibungstexte bei den Benachrichtigungs-Einstellungen klarer und verständlicher formulieren
+- [x] **NOTIF-01**: Beschreibungstexte bei den Benachrichtigungs-Einstellungen klarer und verständlicher formulieren
 
 ### Settings
 
-- [ ] **SET-01**: Doppelte Chevrons bei "Analytics einrichten" und "Analytics Glossar" entfernen (nur ein Chevron)
-- [ ] **SET-02**: Taube/Dove-Icon wird nicht angezeigt — Ursache finden und beheben
+- [x] **SET-01**: Doppelte Chevrons bei "Analytics einrichten" und "Analytics Glossar" entfernen (nur ein Chevron)
+- [x] **SET-02**: Taube/Dove-Icon wird nicht angezeigt — Ursache finden und beheben
 
 ## Out of Scope
 
@@ -42,10 +42,10 @@ Design Polish: UI-Inkonsistenzen beheben, Modale vereinheitlichen, fehlende Stri
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DASH-01 | Phase 16 | Pending |
-| SET-01 | Phase 16 | Pending |
-| SET-02 | Phase 16 | Pending |
-| NOTIF-01 | Phase 16 | Pending |
+| DASH-01 | Phase 16 | Complete |
+| SET-01 | Phase 16 | Complete |
+| SET-02 | Phase 16 | Complete |
+| NOTIF-01 | Phase 16 | Complete |
 | ACCT-01 | Phase 17 | Pending |
 | ACCT-02 | Phase 17 | Pending |
 | ACCT-03 | Phase 17 | Pending |

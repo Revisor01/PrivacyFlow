@@ -10,9 +10,17 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 
 ## Current State
 
-**Latest shipped:** v2.6 Design Polish (completed 2026-04-03)
-**Current:** v2.7 Stability & Architecture (started 2026-04-04)
+**Latest shipped:** v2.7 Stability & Architecture (completed 2026-04-04)
 **GitHub:** Revisor01/StatFlow
+
+### v2.7 Accomplishments
+- Alle 3 aktiven Bugs gefixt (CompareChart @ObservedObject, Cache Offline-Only, Widget Race Condition)
+- Task-Cancellation flächendeckend in 14 ViewModels (loadingTask + isCancelled Guards)
+- Cache nur noch Offline-Fallback (50MB Limit, 24h TTL, Offline-Banner mit Zeitstempel)
+- isNetworkError Extension dedupliziert, 16 DateFormatter Hot-Paths durch shared static lets ersetzt
+- 8 ViewModels in eigene Dateien extrahiert, Dependency Injection für 15 ViewModels
+- 88 print() durch strukturiertes os.Logger ersetzt (4 Kategorien: api, cache, auth, ui)
+- Force Unwraps in KeychainService eliminiert (guard let + throw)
 
 ### v2.6 Accomplishments
 - Dashboard-Kacheln gleich hoch (QuickActionCard maxHeight fix)
@@ -93,18 +101,24 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 - ✓ Offline-Mode UI mit Banner (CLEAN-02) — v2.5
 - ✓ README als Landing Page (README-01) — v2.5
 - ✓ GitHub Repo umbenannt zu StatFlow (REPO-01) — v2.5
+- ✓ CompareChartSection @ObservedObject Fix (BUG-01) — v2.7
+- ✓ Cache nur für Offline mit 50MB/24h Limits (BUG-02) — v2.7
+- ✓ Widget Account-Sync Race Condition behoben (BUG-03) — v2.7
+- ✓ Task-Cancellation in 14 ViewModels (TASK-01) — v2.7
+- ✓ Account-Switch ohne globalen Singleton-State (TASK-02) — v2.7
+- ✓ isNetworkError Extension dedupliziert (REFACTOR-01) — v2.7
+- ✓ DateFormatter shared static lets (REFACTOR-02) — v2.7
+- ✓ 8 ViewModels in eigene Dateien extrahiert (REFACTOR-03) — v2.7
+- ✓ Dependency Injection für 15 ViewModels (REFACTOR-04) — v2.7
+- ✓ LazyVStack-Audit (REFACTOR-05) — v2.7
+- ✓ 88 print() durch os.Logger ersetzt (REFACTOR-06) — v2.7
+- ✓ KeychainService Force Unwraps eliminiert (SEC-01) — v2.7
 
 ### Active
 
 <!-- Current scope. Building toward these. -->
 
-- BUG-01: CompareChartSection @ObservedObject Fix — v2.7
-- BUG-02: Cache nur für Offline (nie als primäre Datenquelle) — v2.7
-- BUG-03: Widget Account-Sync Race Condition — v2.7
-- TASK-01: Task-Cancellation in allen ViewModels — v2.7
-- TASK-02: Account-Switch ohne globalen Singleton-State — v2.7
-- REFACTOR-01 bis REFACTOR-06: Tech Debt abbauen — v2.7
-- SEC-01: KeychainService Force Unwraps entfernen — v2.7
+(Kein aktiver Milestone — v2.7 abgeschlossen)
 
 ### Out of Scope
 
@@ -125,6 +139,9 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 - Widget in 9 Dateien aufgeteilt, beide API-Clients als actors
 - AccountManager ist einzige Auth-Autorität
 - App released als v2.5 auf GitHub (Revisor01/StatFlow)
+- Alle ViewModels in eigenen Dateien, DI-fähig via init-Parameter
+- Strukturiertes Logging via os.Logger (Subsystem: de.godsapp.statflow, 4 Kategorien)
+- Cache nur Offline-Fallback (50MB Limit, 24h Display-TTL)
 
 ## Constraints
 
@@ -142,6 +159,10 @@ Nutzer können ihre Website-Analytics sicher und übersichtlich von ihrem iPhone
 | actor-Pattern für beide API-Clients | Inkonsistenz zwischen UmamiAPI (actor) und PlausibleAPI (@MainActor) | Shipped v2.0 |
 | Task-Cancellation mit loadingTask Handle | .task allein cancelt nicht bei Date-Range-Wechsel | Shipped v2.5 |
 | Offline-Banner differenziert nach View-Typ | Dashboard hat Cache-Fallback, Detail-Views nicht | Shipped v2.5 |
+| Cache nur Offline-Fallback, nie Preview | Dashboard zeigte stale Daten (147 statt 213) weil Cache vor API geladen | Shipped v2.7 |
+| configureProviderForAccount statt setActiveAccount-Loop | Widget Race Condition durch globalen Account-Switch in Schleife | Shipped v2.7 |
+| DI via init-Parameter mit .shared Default | ViewModels direkt testbar ohne Singleton-Abhängigkeit | Shipped v2.7 |
+| os.Logger statt print() | 88 unstrukturierte prints, keine Filterbarkeit in Console.app | Shipped v2.7 |
 
 ## Evolution
 
@@ -161,4 +182,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-04 — v2.7 Stability & Architecture started*
+*Last updated: 2026-04-04 — v2.7 Stability & Architecture completed*

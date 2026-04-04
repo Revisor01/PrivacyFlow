@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
 status: completed
-stopped_at: Completed 20-01-PLAN.md
-last_updated: "2026-04-04T21:03:02.732Z"
+stopped_at: Completed 20-02-PLAN.md
+last_updated: "2026-04-04T21:09:45.394Z"
 last_activity: 2026-04-04 — REFACTOR-01 + REFACTOR-05 completed
 progress:
   total_phases: 17
   completed_phases: 13
   total_plans: 24
-  completed_plans: 30
+  completed_plans: 31
 ---
 
 # Project State
@@ -44,6 +44,7 @@ Last activity: 2026-04-04 — REFACTOR-01 + REFACTOR-05 completed
 - [Phase 19]: LazyVStack only for homogeneous ForEach with large lists; VStack for conditional content
 - [Phase 19]: nonisolated(unsafe) for shared DateFormatter static lets under Swift strict concurrency
 - [Phase 20]: Pure ViewModel extraction: 8 VMs into dedicated files, no logic changes
+- [Phase 20]: DI pattern: init parameters with .shared defaults for all ViewModels
 
 ### Blockers/Concerns
 
@@ -51,6 +52,6 @@ None — alle 12 Punkte in Requirements erfasst.
 
 ## Session Continuity
 
-Last session: 2026-04-04T21:03:02.730Z
-Stopped at: Completed 20-01-PLAN.md
+Last session: 2026-04-04T21:09:45.390Z
+Stopped at: Completed 20-02-PLAN.md
 Resume file: None
